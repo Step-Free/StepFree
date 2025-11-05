@@ -1,3 +1,14 @@
 .first{
   width: 480px;
 }
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/static/Roboto_Condensed-Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:global(.emp) {
+  font-family: 'Roboto', Arial, sans-serif;
+}
