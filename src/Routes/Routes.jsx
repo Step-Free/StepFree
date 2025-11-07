@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
 import Home from "../pages/Home/Home";
@@ -13,62 +12,55 @@ import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
-    
+    Component: MainLayout,
+    path: "/",
     children: [
       {
-        Component: MainLayout,
-        path: "/",
-
+        index: true,
+        path: "home",
+        Component: Home,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+      {
+        path: "services",
         children: [
           {
-            index: true,
-            path: "home",
-            Component: Home,
-          },
-        
-          {
-            path: "about",
-
-            Component: About,
+            path: "education",
+            Component: Education,
           },
           {
             path: "jobs",
             Component: Jobs,
           },
           {
-            path: "education",
-            Component: Education,
-          
-          },
-          {
             path: "places",
             Component: Places,
-            
-          },
-          {
-           path: "*",
-            Component: NotFound ,
-            
           },
         ],
       },
       {
-        Component: AuthLayout,
-        children: [
-          {
-            path: "sign-in",
-            Component: SignIn,
-          },
-          {
-            path: "sign-up",
-            Component: SignUp,
-          },
-            {
-             path: "*",
-            Component: NotFound ,
-            
-          },
-        ],
+        path: "*",
+        Component: NotFound,
+      },
+    ],
+  },
+  {
+    Component: AuthLayout,
+    children: [
+      {
+        path: "sign-in",
+        Component: SignIn,
+      },
+      {
+        path: "sign-up",
+        Component: SignUp,
+      },
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },

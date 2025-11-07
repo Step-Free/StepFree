@@ -1,14 +1,14 @@
-import React from 'react';
-import router from './Routes/Routes';
-import { RouterProvider } from 'react-router-dom';
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import router from "./Routes/Routes";
+import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 
 const App = () => {
   return (
-    <div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router} />
-    </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
-
