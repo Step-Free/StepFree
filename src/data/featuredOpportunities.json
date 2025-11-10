@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Accessible Front-End Developer",
+    "company": "Tech Solutions Inc.",
+    "location": "Remote",
+    "employmentType": "Full-time",
+    "description": "Develop and maintain user interfaces with a strong focus on accessibility standards and usability for all users.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img1.png"
+  },
+  {
+    "id": 2,
+    "title": "Data Entry Specialist",
+    "company": "Global Data Corp.",
+    "location": "New York, NY",
+    "employmentType": "Part-time",
+    "description": "Accurate and efficient data entry for various projects, with flexible scheduling and attention to detail.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img2.png"
+  },
+  {
+    "id": 3,
+    "title": "Customer Support Representative",
+    "company": "CustomerCare Hub",
+    "location": "Hybrid",
+    "employmentType": "Full-time",
+    "description": "Provide excellent customer service, resolving inquiries and issues with empathy and professionalism.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img3.png"
+  },
+  {
+    "id": 4,
+    "title": "Content Writer (Accessibility Focus)",
+    "company": "ContentCreators Co.",
+    "location": "Remote",
+    "employmentType": "Contract",
+    "description": "Create engaging and accessible content for digital platforms, ensuring all materials meet accessibility guidelines.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img4.png"
+  }
+]
