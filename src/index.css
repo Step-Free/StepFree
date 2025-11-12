@@ -1,0 +1,6 @@
+@import "./styles/fonts.css"; /* must be first */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/theme.css";
+@import "./styles/colors.css";
+@import "./styles/base.css";
