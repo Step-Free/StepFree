@@ -1,7 +1,7 @@
 import React from "react";
 import { ModeToggle } from "@/components/ThemeProvider/ThemeModeToggle";
 import logo from "@/assets/images/logo.svg";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Sheet,
   SheetContent,
@@ -33,7 +33,7 @@ const Header = ({ onHeightChange }) => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm border-b border-border flex items-center justify-between px-4 py-4 md:py-6 transition-all"
+      className="sticky top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm border-b border-border flex items-center justify-between px-4 py-4 md:py-6 transition-all"
     >
       {/* Logo */}
       <NavLink to="/" className="flex items-center gap-2">
@@ -74,16 +74,16 @@ const Header = ({ onHeightChange }) => {
                   </svg>
                 </span>
 
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <div className="absolute top-full left-0 mt-3 w-56 bg-popover text-popover-foreground rounded-md shadow-lg border border-border opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out z-[100]">
                   {item.dropdown.map((child) => (
                     <NavLink
                       key={child.to}
                       to={child.to}
                       className={({ isActive }) =>
-                        `block px-4 py-2 text-sm ${
+                        `block px-4 py-2.5 text-sm rounded-md transition-colors ${
                           isActive
                             ? "bg-primary text-primary-foreground font-semibold"
-                            : "text-muted-foreground hover:text-primary"
+                            : "hover:bg-accent hover:text-accent-foreground text-muted-foreground"
                         }`
                       }
                     >
@@ -115,7 +115,7 @@ const Header = ({ onHeightChange }) => {
       </nav>
 
       {/* Mode toggle desktop */}
-      <div className="hidden md:block">
+      <div className="hidden md:block ">
         <ModeToggle />
       </div>
 

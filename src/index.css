@@ -4,3 +4,11 @@
 @import "./styles/theme.css";
 @import "./styles/colors.css";
 @import "./styles/base.css";
+
+html {
+  overflow-y: scroll; /* ✅ Scrollbar always visible */
+  width: 100%;
+}
+body {
+  width: 100%;
+}

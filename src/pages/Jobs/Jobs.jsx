@@ -48,7 +48,11 @@ const Jobs = () => {
         <ImageGrid />
       </div>
 
-      <section className="py-12 my-16 flex flex-col justify-center items-center bg-primary-foreground">
+      {/* <section className="py-12 my-16 flex flex-col justify-center items-center bg-primary-foreground"> */}
+      <section
+        className="py-12 my-16 flex flex-col justify-center items-center 
+  bg-primary-foreground text-primary dark:bg-secondary dark:text-primary-foreground"
+      >
         <div className="flex flex-col justify-center items-center  max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-8 text-center">
             Need More Support?
