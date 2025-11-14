@@ -6,7 +6,7 @@ const Container = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <div
       ref={ref}
-      className={cn("mx-auto max-w-[1024px] px-4 sm:px-6 lg:px-8", className)}
+      className={cn(className)}
       {...props}
     />
   );

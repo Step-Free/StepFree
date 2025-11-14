@@ -13,7 +13,7 @@ const MainLayout = () => {
       {/* Fixed Header */}
       <Header onHeightChange={setHeaderHeight} />
       {/* Main Content (fills remaining space) */}
-      <main className="flex-1" style={{ paddingTop: `${headerHeight}px` }}>
+      <main className="flex-1" style={{ paddingTop: `${0}px` }}>
         <Container>
           <Outlet />
         </Container>
