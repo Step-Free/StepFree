@@ -1,7 +1,7 @@
 import React from "react";
 import { ModeToggle } from "@/components/ThemeProvider/ThemeModeToggle";
 import logo from "@/assets/images/logo.svg";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   Sheet,
   SheetContent,
@@ -11,7 +11,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useElementHeight } from "@/hooks/useElementsHeight"; // 👈 import your hook
+import { useElementHeight } from "@/hooks/useElementsHeight";
+import AuthModal from "./AuthModel"; // ✅ استدعاء المودال
 
 const Header = ({ onHeightChange }) => {
   const location = useLocation();
@@ -66,11 +67,7 @@ const Header = ({ onHeightChange }) => {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
 
@@ -112,6 +109,11 @@ const Header = ({ onHeightChange }) => {
             </NavLink>
           );
         })}
+
+        {/* Login / Register باستخدام المودال */}
+        <div className="ml-4 flex items-center gap-2">
+          <AuthModal /> {/* زر يظهر المودال مباشرة */}
+        </div>
       </nav>
 
       {/* Mode toggle desktop */}
@@ -120,84 +122,7 @@ const Header = ({ onHeightChange }) => {
       </div>
 
       {/* Mobile Burger Menu */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" className="md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </Button>
-        </SheetTrigger>
-
-        <SheetContent side="right" className="w-64 flex flex-col p-6">
-          <SheetHeader>
-            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <SheetDescription className="sr-only">
-              Contains links to Home, About, and Our Services
-            </SheetDescription>
-          </SheetHeader>
-
-          <nav className="flex flex-col gap-4 mt-6">
-            {mainNav.map((item, idx) => {
-              if (item.dropdown) {
-                return (
-                  <div key={idx} className="flex flex-col gap-2">
-                    <span className=" text-muted-foreground">{item.label}</span>
-                    <div className="flex flex-col gap-1 ml-4">
-                      {item.dropdown.map((child) => (
-                        <NavLink
-                          key={child.to}
-                          to={child.to}
-                          className={({ isActive }) =>
-                            `block px-2 py-1 text-sm ${
-                              isActive
-                                ? "text-primary font-semibold"
-                                : "text-muted-foreground hover:text-primary"
-                            }`
-                          }
-                        >
-                          {child.label}
-                        </NavLink>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <NavLink
-                  key={idx}
-                  to={item.to}
-                  end={item.end}
-                  className={({ isActive }) =>
-                    `text-sm font-medium transition ${
-                      isActive
-                        ? "text-primary font-semibold"
-                        : "text-muted-foreground hover:text-primary"
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              );
-            })}
-            <div className="mt-6 flex justify-center">
-              <ModeToggle />
-            </div>
-          </nav>
-        </SheetContent>
-      </Sheet>
+      {/* ممكن تضيف AuthModal هنا بنفس الطريقة لو حابب */}
     </header>
   );
 };
