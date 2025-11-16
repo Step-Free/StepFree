@@ -18,26 +18,27 @@ const Education = () => {
         {
           img: CardImg,
           title: "Accessible Online Courses",
-          text: "Discover platforms offering inclusive online courses with features like captions, transcripts, and screen‑reader compatibility.",
+          text: "Discover platforms offering inclusive online courses with features like captions, transcripts, and screen-reader compatibility.",
           btn: "Explore Platforms",
-          link: "https://www.w3.org/WAI/courses/foundations-course/",
+          link: "https://hayat-stg.tawasal.org.sa/ar", // منصة حياة
         },
         {
           img: CardImg2,
           title: "Virtual Workshops & Webinars",
           text: "Participate in live and recorded workshops designed to be fully accessible for all learners.",
           btn: "Find Workshops",
-          link: "https://dequeuniversity.com/",
+          link: "https://npd-egypt.net/", // National Network for Persons with Disabilities (Ta’heel)
         },
         {
           img: CardImg3,
           title: "Digital Resource Libraries",
-          text: "Access a curated collection of e‑books, articles, and educational materials in accessible formats.",
+          text: "Access a curated collection of e-books, articles, and educational materials in accessible formats.",
           btn: "Browse Library",
-          link: "https://www.itu.int/en/ITU-D/Digital-Inclusion/Persons-with-Disabilities/Pages/Self-Paced-Online-Training-on-ICT-Accessibility.aspx",
+          link: "https://www.momkenpwd.org/", // Momken Foundation
         },
       ],
     },
+
     {
       title: "Vocational Training Programs",
       cards: [
@@ -46,21 +47,21 @@ const Education = () => {
           title: "Skills Development Programs",
           text: "Enroll in programs focused on practical skills with adaptive learning environments.",
           btn: "View Programs",
-          link: "https://www.udemy.com",
+          link: "https://itqadem.com", // Itqadem – Skills & adaptive training
         },
         {
           img: CardImg12,
           title: "Career Readiness Training",
           text: "Workshops and mentorship to prepare for interviews, resumes, and workplace adjustments.",
           btn: "Start Training",
-          link: "https://learn.microsoft.com/en-us/training/paths/accessibility-fundamental/",
+          link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support & training
         },
         {
           img: CardImg13,
           title: "Certification Courses",
-          text: "Gain industry‑recognized certifications through accessible training pathways.",
+          text: "Gain industry-recognized certifications through accessible training pathways.",
           btn: "Get Certified",
-          link: "https://dequeuniversity.com/certification",
+          link: "https://www.momkenpwd.org/", // Momken Foundation – Certification & training programs
         },
       ],
     },
@@ -72,55 +73,64 @@ const Education = () => {
           title: "University Accessibility Guides",
           text: "Information on accessibility features, support services, and accommodations at universities.",
           btn: "Browse Universities",
-          link: "https://web.dev/learn/accessibility",
+          link: "https://npd-egypt.net/", // National Network for Persons with Disabilities – university support
         },
-        {
-          img: CardImg15,
-          title: "Disability Support Services",
-          text: "Learn about support centers and programs for disabled students on campus.",
-          btn: "Learn More",
-          link: "https://www.scholarships360.org/scholarships/scholarships-for-disabled-students/",
-        },
+       {
+  img: CardImg15,
+  title: "Disability Support Services",
+  text: "Learn about support centers and programs for disabled students on campus.",
+  btn: "Learn More",
+  link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support services for disabled students
+},
+
         {
           img: CardImg16,
           title: "Scholarships & Funding",
           text: "Find scholarships and financial aid for disabled students pursuing higher education.",
           btn: "View Scholarships",
-          link: "https://www.scholarships.com/financial-aid/college-scholarships/scholarships-by-type/disability-scholarships",
+          link: "https://www.tqeem.sa/", // Tqeem Platform – scholarships & funding
         },
       ],
     },
   ];
 
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-8 space-y-20 bg-white text-black dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-      {/* ===== Hero Section ===== */}
-      <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 text-center md:text-left">
-          <h1 className="text-[40px] font-roboto font-bold text-sky-600 dark:text-sky-400 leading-snug mb-8">
-            Empowering Minds,
-            <br />
-            Expanding Horizons
-            <br />
-            through Education
+    <main className="min-h-screen py-10 px-4 md:px-8 space-y-10 bg-white text-black dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+      {/* ===== Hero Section (SAME AS HOME) ===== */}
+      <section className="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row items-center gap-10">
+
+        {/* Text */}
+        <div className="w-full md:w-1/2 text-center md:text-left">
+
+          <h1 className="text-4xl sm:text-4xl md:text-4xl font-bold mb-6 leading-[1.1] w-full text-sky-600 text-center md:text-left">
+            Empowering Minds, <br />
+            Expanding Horizons <br />
+            Through Education
           </h1>
-          <p className="leading-relaxed mb-6 max-w-md mx-auto md:mx-0 text-[18px] text-gray-600 dark:text-gray-300 font-roboto">
+
+
+          <p className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg max-w-[450px] mx-auto md:mx-0">
             Discover a world of learning opportunities tailored for disabled
-            individuals. From online courses to vocational training and
-            inclusive university programs, StepFree connects you with the
-            resources to achieve your educational goals.
+            individuals. From online courses to vocational training and inclusive
+            university programs, StepFree connects you with the resources to
+            achieve your educational goals.
           </p>
 
-          <button className="bg-sky-600 dark:bg-sky-500 text-white px-6 py-2 text-sm rounded-md font-medium hover:bg-sky-700 dark:hover:bg-sky-600 transition">
-            Back to Services
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+            <button className="bg-sky-600 dark:bg-sky-500 text-white px-6 py-2 text-sm rounded-md font-medium hover:bg-sky-700 dark:hover:bg-sky-600 transition">
+              Back to Services
+            </button>
+          </div>
         </div>
 
-        <div className="flex-1 flex justify-center">
+        {/* Image */}
+        <div className="w-full md:w-1/2 flex justify-center hidden sm:flex">
           <img
             src={educationImg}
             alt="Education illustration"
-            className="w-56 sm:w-64 md:w-80 object-contain"
+            className="w-72 sm:w-96 border rounded-lg object-contain"
           />
         </div>
       </section>
@@ -129,16 +139,16 @@ const Education = () => {
       {sections.map((section, i, arr) => (
         <section
           key={i}
-          className={`w-full ${
-            i === 0 || i === arr.length - 1
-              ? "bg-gray-50 dark:bg-gray-800 py-20"
-              : "py-8"
-          } transition-colors duration-300`}
+          className={`w-full ${i === 0 || i === arr.length - 1
+            ? "bg-gray-50 dark:bg-gray-800 py-12"
+            : "py-4"
+            } transition-colors duration-300`}
         >
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-[47px] sm:text-3xl font-semibold mb-10 text-black dark:text-gray-100">
+            <h2 className="text-[40px] sm:text-3xl font-semibold mb-8 text-black dark:text-gray-100">
               {section.title}
             </h2>
+
             <div className="flex flex-wrap justify-center gap-6">
               {section.cards.map((card, index) => (
                 <div
@@ -150,13 +160,16 @@ const Education = () => {
                     alt={card.title}
                     className="w-full h-48 object-cover"
                   />
+
                   <div className="p-4 flex flex-col flex-grow">
                     <h3 className="text-black dark:text-gray-100 mb-4 text-left text-xl font-bold">
                       {card.title}
                     </h3>
+
                     <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 text-left">
                       {card.text}
                     </p>
+
                     <a
                       href={card.link}
                       target="_blank"
@@ -169,9 +182,11 @@ const Education = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </section>
       ))}
+
     </main>
   );
 };
