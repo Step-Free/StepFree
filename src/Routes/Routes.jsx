@@ -1,5 +1,4 @@
-import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
 import AuthLayout from "../Layout/AuthLayout/AuthLayout";
 import Home from "../pages/Home/Home";
@@ -10,18 +9,21 @@ import Places from "../pages/Places/Places";
 import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import NotFound from "../components/NotFound/NotFound";
-import DashboardWrapper from "../pages/Dashbord/DashboardWrapper ";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Navigate to="/auth/sign-in" replace />, // أول ما يفتح الموقع → Login
+  },
+  {
+    path: "/main",
     element: <MainLayout />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Home /> }, // أول صفحة بعد Login → Home
       { path: "about", element: <About /> },
-      { path: "services/education", element: <Education /> },
-      { path: "services/jobs", element: <Jobs /> },
-      { path: "services/places", element: <Places /> },
+      { path: "education", element: <Education /> },
+      { path: "jobs", element: <Jobs /> },
+      { path: "places", element: <Places /> },
       { path: "*", element: <NotFound /> },
     ],
   },
@@ -35,8 +37,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
-    element: <DashboardWrapper />,
+    path: "*",
+    element: <Navigate to="/auth/sign-in" replace />, // أي route غلط → Login
   },
 ]);
 

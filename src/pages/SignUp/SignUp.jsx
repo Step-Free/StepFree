@@ -1,77 +1,77 @@
-// import React, { useState } from "react";
-// import { Button } from "@/components/ui/button"; // لو عندك component جاهز للزرار
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-// const SignUp = ({ onClose }) => {
-//   const [form, setForm] = useState({ username: "", password: "", role: "user" });
-//   const [message, setMessage] = useState("");
+const SignUp = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ username: "", password: "" });
 
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
-//   const handleRegister = (e) => {
-//     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-//     const users = JSON.parse(localStorage.getItem("users")) || [];
-//     const exists = users.find((u) => u.username === form.username);
+    if (!form.username || !form.password) {
+      alert("⚠️ Please fill in all fields!");
+      return;
+    }
 
-//     if (exists) {
-//       setMessage("⚠️ Username already exists!");
-//       return;
-//     }
+    if (form.password.length < 8) {
+      alert("⚠️ Password must be at least 8 characters!");
+      return;
+    }
 
-//     users.push(form);
-//     localStorage.setItem("users", JSON.stringify(users));
-//     setMessage("✅ Registered successfully!");
-//     setForm({ username: "", password: "", role: "user" });
+    const users = JSON.parse(sessionStorage.getItem("users")) || [];
 
-//     // إذا كنت عايز المودال يقفل تلقائي بعد التسجيل
-//     if (onClose) onClose();
-//   };
+    const exists = users.find((u) => u.username === form.username);
+    if (exists) {
+      alert("⚠️ Username already exists!");
+      return;
+    }
 
-//   return (
-//     <div className="p-6 flex flex-col gap-4 w-full max-w-sm mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-//       <h2 className="text-xl font-bold text-center">Register</h2>
+    users.push(form);
+    sessionStorage.setItem("users", JSON.stringify(users));
 
-//       <form onSubmit={handleRegister} className="flex flex-col gap-3">
-//         <input
-//           type="text"
-//           placeholder="Username"
-//           name="username"
-//           value={form.username}
-//           onChange={handleChange}
-//           required
-//           className="px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-primary"
-//         />
+    alert("✔️ Account created successfully!");
+    navigate("/auth/sign-in");
+  };
 
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           name="password"
-//           value={form.password}
-//           onChange={handleChange}
-//           required
-//           className="px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-primary"
-//         />
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen gap-6">
+      <h1 className="text-2xl font-bold">Register</h1>
 
-//         <select
-//           name="role"
-//           value={form.role}
-//           onChange={handleChange}
-//           className="px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-primary"
-//         >
-//           <option value="user">User</option>
-//           <option value="admin">Admin</option>
-//         </select>
+      <form className="flex flex-col gap-3 w-64" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+          className="border p-2 rounded"
+          required
+        />
 
-//         <Button type="submit" className="w-full mt-2">
-//           Register
-//         </Button>
-//       </form>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password (min 8 chars)"
+          onChange={handleChange}
+          className="border p-2 rounded"
+          required
+        />
 
-//       {message && <p className="text-center text-sm text-red-500">{message}</p>}
-//     </div>
-//   );
-// };
+        <button className="bg-green-600 text-white p-2 rounded">
+          Register
+        </button>
+      </form>
 
-// export default SignUp;
+      <p className="text-sm">
+        Already have an account?{" "}
+        <Link to="/auth/sign-in" className="text-blue-600 underline">
+          Login
+        </Link>
+      </p>
+    </div>
+  );
+};
+
+export default SignUp;

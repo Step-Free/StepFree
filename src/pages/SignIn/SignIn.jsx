@@ -1,69 +1,73 @@
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { Button } from "@/components/ui/button"; // لو عندك زرار جاهز
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-// const SignIn = ({ onClose }) => {
-//   const [form, setForm] = useState({ username: "", password: "" });
-//   const [message, setMessage] = useState("");
-//   const navigate = useNavigate();
+const SignIn = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ username: "", password: "" });
 
-//   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
-//   const handleLogin = (e) => {
-//     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-//     const users = JSON.parse(localStorage.getItem("users")) || [];
-//     const user = users.find(
-//       (u) => u.username === form.username && u.password === form.password
-//     );
+    if (!form.username || !form.password) {
+      alert("⚠️ Please fill in all fields!");
+      return;
+    }
 
-//     if (user) {
-//       localStorage.setItem("loggedInUser", JSON.stringify(user));
-//       setMessage("✅ Login successful!");
+    const users = JSON.parse(sessionStorage.getItem("users")) || [];
+    
+    const user = users.find(
+      (u) => u.username === form.username && u.password === form.password
+    );
 
-//       // Close modal if passed
-//       if (onClose) onClose();
+    if (!user) {
+      alert("⚠️ Wrong username or password!");
+      return;
+    }
 
-//       // Redirect to dashboard
-//       navigate("/dashboard");
-//     } else {
-//       setMessage("⚠️ Invalid username or password");
-//     }
-//   };
+    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
 
-//   return (
-//     <div className="p-6 flex flex-col gap-4 w-full max-w-sm mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-//       <h2 className="text-xl font-bold text-center">Login</h2>
+    navigate("/main");
+  };
 
-//       <form onSubmit={handleLogin} className="flex flex-col gap-3">
-//         <input
-//           type="text"
-//           placeholder="Username"
-//           name="username"
-//           value={form.username}
-//           onChange={handleChange}
-//           required
-//           className="px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-primary"
-//         />
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen gap-6">
+      <h1 className="text-2xl font-bold">Login</h1>
 
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           name="password"
-//           value={form.password}
-//           onChange={handleChange}
-//           required
-//           className="px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-primary"
-//         />
+      <form className="flex flex-col gap-3 w-64" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+          className="border p-2 rounded"
+          required
+        />
 
-//         <Button type="submit" className="w-full mt-2">
-//           Login
-//         </Button>
-//       </form>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          className="border p-2 rounded"
+          required
+        />
 
-//       {message && <p className="text-center text-sm text-red-500">{message}</p>}
-//     </div>
-//   );
-// };
+        <button className="bg-blue-600 text-white p-2 rounded">
+          Login
+        </button>
+      </form>
 
-// export default SignIn;
+      <p className="text-sm">
+        Don't have account?{" "}
+        <Link to="/auth/sign-up" className="text-blue-600 underline">
+          Register here
+        </Link>
+      </p>
+    </div>
+  );
+};
+
+export default SignIn;

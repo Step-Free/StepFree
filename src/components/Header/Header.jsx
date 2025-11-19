@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useElementHeight } from "@/hooks/useElementsHeight";
-import AuthModal from "./AuthModel"; // ✅ استدعاء المودال
+// import AuthModal from "./AuthModel"; 
 
 const Header = ({ onHeightChange }) => {
   const location = useLocation();
@@ -112,7 +112,7 @@ const Header = ({ onHeightChange }) => {
 
         {/* Login / Register باستخدام المودال */}
         <div className="ml-4 flex items-center gap-2">
-          <AuthModal /> {/* زر يظهر المودال مباشرة */}
+          {/* <AuthModal /> زر يظهر المودال مباشرة */}
         </div>
       </nav>
 
