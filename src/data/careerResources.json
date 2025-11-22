@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Accessible Front-End Developer",
+    "description": "Develop and maintain user interfaces with a strong focus on accessibility standards and usability for all users.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img1.png"
+  },
+  {
+    "id": 2,
+    "title": "Data Entry Specialist",
+    "description": "Accurate and efficient data entry for various projects, with flexible scheduling and attention to detail.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img2.png"
+  },
+  {
+    "id": 3,
+    "title": "Customer Support Representative",
+    "description": "Provide excellent customer service, resolving inquiries and issues with empathy and professionalism.",
+    "buttonLabel": "View Details",
+    "image": "/src/assets/images/img3.png"
+  }
+]
