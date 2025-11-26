@@ -1,4 +1,6 @@
 import React from 'react';
+import TeamImage from '../../assets/images/team.png';
+import ImpactImage from '../../assets/images/impact.png';
 
 
 const About = () => {
@@ -104,7 +106,7 @@ const About = () => {
           {/* Image Column */}
           <div>
             <img
-              src="https://placehold.co/600x400/d1e3f8/3b82f6?text=Our+Team"
+              src={TeamImage}
               alt="A diverse group of colleagues collaborating in an office."
               className="rounded-lg shadow-lg w-full h-auto"
               onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/94a3b8?text=Image'; }}
@@ -183,7 +185,7 @@ const About = () => {
           {/* Image Column */}
           <div>
             <img
-              src="https://placehold.co/600x400/d1d5db/4b5563?text=Our+Impact"
+              src={ImpactImage}
               alt="A person in a wheelchair working diligently on a laptop in a bright room."
               className="rounded-lg shadow-lg w-full h-auto"
               onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/94a3b8?text=Image'; }}
