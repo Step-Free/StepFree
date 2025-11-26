@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryCard from '@/components/ui/CategoryCard';
 import PlaceCard from '@/components/ui/PlaceCard';
+import { allAccessiblePlaces, featuredData } from '@/lib/all_places';
 
 
 const Places = () => {
@@ -116,24 +117,6 @@ const Places = () => {
   };
 
   const FeaturedSpots = () => {
-    const featuredData = [
-      {
-        title: "City Central Library",
-        desc: "Fully accessible with ramps, elevators, and assistive technology stations.",
-        img: "https://placehold.co/400x300/d1d5db/374151?text=City+Library"
-      },
-      {
-        title: "Greenwood Park",
-        desc: "Features paved pathways, accessible picnic areas, and an inclusive playground.",
-        img: "https://placehold.co/400x300/bbf7d0/166534?text=Greenwood+Park"
-      },
-      {
-        title: "The Modern Brew",
-        desc: "Spacious layout for wheelchair maneuverability and accessible restrooms.",
-        img: "https://placehold.co/400x300/fde68a/854d0e?text=The+Modern+Brew"
-      },
-    ];
-
     return (
       // Using bg-black in dark mode for a slight contrast with the bg-gray-900 sections
       <section className="py-16 bg-gray-50 dark:bg-black">
@@ -143,7 +126,7 @@ const Places = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredData.map((place) => (
-              <PlaceCard key={place.title} imageUrl={place.img} title={place.title} description={place.desc} />
+              <PlaceCard key={place.title} imageUrl={place.img} title={place.title} description={place.desc} url={place.url} />
             ))}
           </div>
         </div>
@@ -152,54 +135,6 @@ const Places = () => {
   };
 
   const AllPlaces = () => {
-    const allPlacesData = [
-      {
-        title: "City Central Library",
-        desc: "Fully accessible with ramps, elevators, and assistive technology stations.",
-        img: "https://placehold.co/400x300/d1d5db/374151?text=City+Library"
-      },
-      {
-        title: "Greenwood Park",
-        desc: "Features paved pathways, accessible picnic areas, and an inclusive playground.",
-        img: "https://placehold.co/400x300/bbf7d0/166534?text=Greenwood+Park"
-      },
-      {
-        title: "The Modern Brew",
-        desc: "Spacious layout for wheelchair maneuverability and accessible restrooms.",
-        img: "https://placehold.co/400x300/fde68a/854d0e?text=The+Modern+Brew"
-      },
-      {
-        title: "Horizon Aquatic Center",
-        desc: "Equipped with pool lifts, accessible changing rooms, and zero-depth entry.",
-        img: "https://placehold.co/400x300/bae6fd/0c4a6e?text=Aquatic+Center"
-      },
-      {
-        title: "Art & Culture Museum",
-        desc: "Audio guides, large print labels, and wheelchair access throughout all exhibits.",
-        img: "https://placehold.co/400x300/fbcfe8/9d2667?text=Art+Museum"
-      },
-      {
-        title: "Central Shopping Mall",
-        desc: "Wide corridors, numerous elevators, and accessible parking spots.",
-        img: "https://placehold.co/400x300/e9d5ff/581c87?text=Shopping+Mall"
-      },
-      {
-        title: "Cozy Corner Bistro",
-        desc: "Ramp access at the entrance, flexible seating arrangements, and large-print menus.",
-        img: "https://placehold.co/400x300/fecaca/991b1b?text=Cozy+Bistro"
-      },
-      {
-        title: "Atlas Bank",
-        desc: "Talking ATMs, low-height counters, and automatic doors for easy access.",
-        img: "https://placehold.co/400x300/cccccc/111827?text=Atlas+Bank"
-      },
-      {
-        title: "Assisted Living Hub",
-        desc: "Comprehensive support services and barrier-free living spaces.",
-        img: "https://placehold.co/400x300/fed7aa/c2410c?text=Living+Hub"
-      },
-    ];
-
     return (
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
@@ -207,8 +142,8 @@ const Places = () => {
             All Accessible Places
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {allPlacesData.map((place) => (
-              <PlaceCard key={place.title} imageUrl={place.img} title={place.title} description={place.desc} />
+            {allAccessiblePlaces.map((place) => (
+              <PlaceCard key={place.title} imageUrl={place.img} title={place.title} description={place.desc} url={place.url} />
             ))}
           </div>
         </div>
