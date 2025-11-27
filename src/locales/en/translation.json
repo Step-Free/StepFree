@@ -1,0 +1,258 @@
+{
+  "hero": {
+    "title": "Discover Accessible Places",
+    "subtitle": "Find and explore inclusive locations designed for all. Search here for places with the accessibility features you need.",
+    "searchPlaceholder": "Search for a place..."
+  },
+  "featured": {
+    "title": "Featured Accessible Spots"
+  },
+  "allPlaces": {
+    "title": "All Accessible Places",
+    "noResults": "No places found matching your search."
+  },
+  "contribute": {
+    "title": "Contribute to Our Community",
+    "description": "Help us expand our database by adding new accessible places. Share your finds and detail the accessibility features to help others in the community.",
+    "button": "Add a New Place"
+  },
+  "addPlace": {
+    "title": "Add New Accessible Place",
+    "placeTitle": "Place Title",
+    "description": "Description",
+    "image": "Image URL",
+    "website": "Website URL",
+    "cancel": "Cancel",
+    "submit": "Add Place",
+    "placeholders": {
+      "title": "e.g., Cairo Festival City Mall — New Cairo",
+      "desc": "Describe the accessibility features...",
+      "img": "https://example.com/image.jpg",
+      "url": "https://example.com"
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "home": {
+    "hero": {
+      "title1": "Empowering",
+      "title2": "Journeys, Connecting Lives.",
+      "description": "StepFree is dedicated to providing accessible resources and information, fostering independence and community for disabled individuals worldwide.",
+      "learnMore": "Learn More About Us",
+      "exploreServices": "Explore Our Services"
+    },
+    "commitment": {
+      "title": "Our Commitment to an Inclusive World",
+      "description": "At StepFree, our mission is to break down barriers and build bridges to a more accessible and equitable future for everyone.",
+      "features": {
+        "empowerment": {
+          "title": "Empowerment",
+          "desc": "We believe in fostering independence, self-determination for every individual by accessible resources."
+        },
+        "community": {
+          "title": "Community",
+          "desc": "Building a supportive network where experiences are shared, and collective strength empowers all members."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "desc": "Continuously seeking creative solutions and leveraging technology to enhance accessibility and inclusion."
+        }
+      }
+    },
+    "services": {
+      "title": "Empowering Your Journey Through Our Services",
+      "education": {
+        "title": "Education",
+        "desc": "Discover inclusive learning environments and educational programs for diverse needs, opening doors to knowledge.",
+        "btn": "Explore Education"
+      },
+      "jobs": {
+        "title": "Jobs",
+        "desc": "Find accessible job opportunities and career support resources designed to help you thrive in the workplace.",
+        "btn": "Find Job Opportunities"
+      },
+      "places": {
+        "title": "Places",
+        "desc": "Explore a directory of accessible public venues, recreational facilities, and points of interest for an inclusive experience.",
+        "btn": "Discover Places"
+      }
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About StepFree: Empowering Lives, Building Connections",
+      "description": "StepFree is dedicated to breaking down barriers and fostering an inclusive world where disabled individuals have unparalleled access to education, meaningful employment, and vibrant community life. We believe in a future where every step is free from limitation."
+    },
+    "missionVision": {
+      "missionTitle": "Our Mission",
+      "missionDesc": "To provide a comprehensive, accessible platform that connects disabled individuals with vital resources, fostering equal opportunities in education, meaningful employment, and vibrant community engagement, promoting independence and quality of life.",
+      "visionTitle": "Our Vision",
+      "visionDesc": "To be the leading global resource for accessibility, empowering every disabled person to reach their full potential and live a life without barriers, contributing to a more inclusive and equitable society."
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "values": {
+        "accessibility": {
+          "title": "Accessibility First",
+          "desc": "Ensuring all our resources and platform features are user-friendly, intuitive, and barrier-free for everyone."
+        },
+        "community": {
+          "title": "Community & Belonging",
+          "desc": "Fostering a supportive, inclusive network where disabled individuals feel valued, connected, and empowered."
+        },
+        "empowerment": {
+          "title": "Empowerment",
+          "desc": "Providing tools, knowledge, and opportunities that enable self-determination and personal growth."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "desc": "Continuously seeking new and better ways to solve challenges, at the forefront of accessibility through creative solutions and thoughtful design."
+        },
+        "integrity": {
+          "title": "Integrity",
+          "desc": "Operating with honesty, transparency, and a deep commitment to the trust placed in us by our community."
+        },
+        "growth": {
+          "title": "Growth & Progress",
+          "desc": "Committed to supporting individuals in achieving their personal and professional aspirations, fostering continuous improvement."
+        }
+      }
+    },
+    "impact": {
+      "title": "Our Commitment to Impact",
+      "desc1": "StepFree is more than just a platform; it's a movement. We are committed to making a tangible, positive impact in the lives of disabled individuals by fostering an ecosystem of support, opportunity, and advocacy. Our initiatives are designed with a deep understanding of the unique challenges and strengths of our community.",
+      "desc2": "We partner with leading organizations, educators, and employers to ensure our resources are current, relevant, and effective, continuously expanding our reach and deepening our support for the community.",
+      "button": "Learn More About Our Work"
+    }
+  },
+  "education": {
+    "hero": {
+      "title": "Empowering Minds, Expanding Horizons Through Education",
+      "description": "Discover a world of learning opportunities tailored for disabled individuals. From online courses to vocational training and inclusive university programs, StepFree connects you with the resources to achieve your educational goals.",
+      "backBtn": "Back to Services"
+    },
+    "sections": {
+      "onlineLearning": {
+        "title": "Online Learning Platforms",
+        "cards": {
+          "courses": {
+            "title": "Accessible Online Courses",
+            "text": "Discover platforms offering inclusive online courses with features like captions, transcripts, and screen-reader compatibility.",
+            "btn": "Explore Platforms"
+          },
+          "workshops": {
+            "title": "Virtual Workshops & Webinars",
+            "text": "Participate in live and recorded workshops designed to be fully accessible for all learners.",
+            "btn": "Find Workshops"
+          },
+          "library": {
+            "title": "Digital Resource Libraries",
+            "text": "Access a curated collection of e-books, articles, and educational materials in accessible formats.",
+            "btn": "Browse Library"
+          }
+        }
+      },
+      "vocationalTraining": {
+        "title": "Vocational Training Programs",
+        "cards": {
+          "skills": {
+            "title": "Skills Development Programs",
+            "text": "Enroll in programs focused on practical skills with adaptive learning environments.",
+            "btn": "View Programs"
+          },
+          "career": {
+            "title": "Career Readiness Training",
+            "text": "Workshops and mentorship to prepare for interviews, resumes, and workplace adjustments.",
+            "btn": "Start Training"
+          },
+          "certification": {
+            "title": "Certification Courses",
+            "text": "Gain industry-recognized certifications through accessible training pathways.",
+            "btn": "Get Certified"
+          }
+        }
+      },
+      "universityPrograms": {
+        "title": "Inclusive University Programs",
+        "cards": {
+          "guides": {
+            "title": "University Accessibility Guides",
+            "text": "Information on accessibility features, support services, and accommodations at universities.",
+            "btn": "Browse Universities"
+          },
+          "support": {
+            "title": "Disability Support Services",
+            "text": "Learn about support centers and programs for disabled students on campus.",
+            "btn": "Learn More"
+          },
+          "scholarships": {
+            "title": "Scholarships & Funding",
+            "text": "Find scholarships and financial aid for disabled students pursuing higher education.",
+            "btn": "View Scholarships"
+          }
+        }
+      }
+    }
+  },
+  "jobs": {
+    "hero": {
+      "title": "Unlock Your Career Potential",
+      "description": "StepFree connects disabled job seekers with inclusive opportunities and tailored support. Find your next role with employers who value diversity and accessibility.",
+      "button": "Explore Job Listings"
+    },
+    "resources": {
+      "title": "Empowering Career Resources"
+    },
+    "opportunities": {
+      "title": "Featured Opportunities"
+    },
+    "partners": {
+      "title": "Our Valued Partners"
+    },
+    "support": {
+      "title": "Need More Support?",
+      "description": "Our team is here to help you navigate your career journey. Reach out for personalized guidance and support.",
+      "button": "Contact Our Team"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Login",
+      "usernamePlaceholder": "Username",
+      "passwordPlaceholder": "Password",
+      "button": "Login",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register here",
+      "alerts": {
+        "fillAll": "⚠️ Please fill in all fields!",
+        "userNotFound": "⚠️ Username not found. Please sign up first!",
+        "wrongPassword": "⚠️ Wrong password!"
+      }
+    },
+    "signUp": {
+      "title": "Register",
+      "firstNamePlaceholder": "First Name",
+      "lastNamePlaceholder": "Last Name",
+      "usernamePlaceholder": "Username",
+      "passwordPlaceholder": "Password (min 8 chars)",
+      "button": "Register",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Login",
+      "alerts": {
+        "fillAll": "⚠️ Please fill in all fields!",
+        "passwordLength": "⚠️ Password must be at least 8 characters!",
+        "usernameTaken": "⚠️ This username is already taken!",
+        "success": "✔️ Account created successfully!"
+      }
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{username}}!",
+    "role": "Role: {{role}}",
+    "adminMsg": "This is the Admin dashboard",
+    "userMsg": "This is the User dashboard",
+    "logout": "Logout",
+    "loginFirst": "Please login first"
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import TeamImage from '../../assets/images/team.png';
 import ImpactImage from '../../assets/images/impact.png';
 
 
 const About = () => {
+  const { t } = useTranslation();
 
   // --- Icon Components (Defined inside AboutUs) ---
 
@@ -71,10 +73,10 @@ const About = () => {
       <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-gray-900 py-20 md:py-28 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            About StepFree: Empowering Lives, Building Connections
+            {t("about.hero.title")}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            StepFree is dedicated to breaking down barriers and fostering an inclusive world where disabled individuals have unparalleled access to education, meaningful employment, and vibrant community life. We believe in a future where every step is free from limitation.
+            {t("about.hero.description")}
           </p>
         </div>
       </section>
@@ -91,16 +93,16 @@ const About = () => {
           {/* Text Column */}
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-              Our Mission
+              {t("about.missionVision.missionTitle")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-8">
-              To provide a comprehensive, accessible platform that connects disabled individuals with vital resources, fostering equal opportunities in education, meaningful employment, and vibrant community engagement, promoting independence and quality of life.
+              {t("about.missionVision.missionDesc")}
             </p>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-              Our Vision
+              {t("about.missionVision.visionTitle")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
-              To be the leading global resource for accessibility, empowering every disabled person to reach their full potential and live a life without barriers, contributing to a more inclusive and equitable society.
+              {t("about.missionVision.visionDesc")}
             </p>
           </div>
           {/* Image Column */}
@@ -124,33 +126,33 @@ const About = () => {
     const values = [
       {
         icon: <AccessibilityIcon className="w-6 h-6" />,
-        title: "Accessibility First",
-        description: "Ensuring all our resources and platform features are user-friendly, intuitive, and barrier-free for everyone."
+        title: t("about.coreValues.values.accessibility.title"),
+        description: t("about.coreValues.values.accessibility.desc")
       },
       {
         icon: <UsersIcon className="w-6 h-6" />,
-        title: "Community & Belonging",
-        description: "Fostering a supportive, inclusive network where disabled individuals feel valued, connected, and empowered."
+        title: t("about.coreValues.values.community.title"),
+        description: t("about.coreValues.values.community.desc")
       },
       {
         icon: <SparklesIcon className="w-6 h-6" />,
-        title: "Empowerment",
-        description: "Providing tools, knowledge, and opportunities that enable self-determination and personal growth."
+        title: t("about.coreValues.values.empowerment.title"),
+        description: t("about.coreValues.values.empowerment.desc")
       },
       {
         icon: <LightBulbIcon className="w-6 h-6" />,
-        title: "Innovation",
-        description: "Continuously seeking new and better ways to solve challenges, at the forefront of accessibility through creative solutions and thoughtful design."
+        title: t("about.coreValues.values.innovation.title"),
+        description: t("about.coreValues.values.innovation.desc")
       },
       {
         icon: <ShieldCheckIcon className="w-6 h-6" />,
-        title: "Integrity",
-        description: "Operating with honesty, transparency, and a deep commitment to the trust placed in us by our community."
+        title: t("about.coreValues.values.integrity.title"),
+        description: t("about.coreValues.values.integrity.desc")
       },
       {
         icon: <TrendingUpIcon className="w-6 h-6" />,
-        title: "Growth & Progress",
-        description: "Committed to supporting individuals in achieving their personal and professional aspirations, fostering continuous improvement."
+        title: t("about.coreValues.values.growth.title"),
+        description: t("about.coreValues.values.growth.desc")
       },
     ];
 
@@ -158,7 +160,7 @@ const About = () => {
       <section className="py-16 md:py-24 bg-gray-50 dark:bg-black">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">
-            Our Core Values
+            {t("about.coreValues.title")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {values.map((value) => (
@@ -194,18 +196,18 @@ const About = () => {
           {/* Text Column */}
           <div className="md:order-last">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Our Commitment to Impact
+              {t("about.impact.title")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-8">
-              StepFree is more than just a platform; it's a movement. We are committed to making a tangible, positive impact in the lives of disabled individuals by fostering an ecosystem of support, opportunity, and advocacy. Our initiatives are designed with a deep understanding of the unique challenges and strengths of our community.
+              {t("about.impact.desc1")}
               <br /><br />
-              We partner with leading organizations, educators, and employers to ensure our resources are current, relevant, and effective, continuously expanding our reach and deepening our support for the community.
+              {t("about.impact.desc2")}
             </p>
             <a
               href="#"
               className="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300"
             >
-              Learn More About Our Work
+              {t("about.impact.button")}
             </a>
           </div>
         </div>

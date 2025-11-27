@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AddPlaceDialog from './AddPlaceDialog';
 
 const ContributeCTA = ({ onAddPlace }) => {
+    const { t } = useTranslation();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const handleAddPlace = (newPlace) => {
@@ -14,16 +16,16 @@ const ContributeCTA = ({ onAddPlace }) => {
             <section className="bg-blue-600 text-white">
                 <div className="max-w-4xl mx-auto px-4 py-16 text-center">
                     <h2 className="text-3xl font-bold mb-4">
-                        Contribute to Our Community
+                        {t('contribute.title')}
                     </h2>
                     <p className="text-lg text-blue-100 dark:text-blue-200 mb-8">
-                        Help us expand our database by adding new accessible places. Share your finds and detail the accessibility features to help others in the community.
+                        {t('contribute.description')}
                     </p>
                     <button
                         onClick={() => setIsDialogOpen(true)}
                         className="inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition-colors duration-300"
                     >
-                        Add a New Place
+                        {t('contribute.button')}
                     </button>
                 </div>
             </section>

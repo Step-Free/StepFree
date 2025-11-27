@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import educationImg from "../../assets/images/edu1.png";
 import CardImg from "../../assets/images/edu2.png";
 import CardImg2 from "../../assets/images/edu3.png";
@@ -11,83 +12,85 @@ import CardImg15 from "../../assets/images/edu9.png";
 import CardImg16 from "../../assets/images/edu10.png";
 
 const Education = () => {
+  const { t } = useTranslation();
+
   const sections = [
     {
-      title: "Online Learning Platforms",
+      title: t("education.sections.onlineLearning.title"),
       cards: [
         {
           img: CardImg,
-          title: "Accessible Online Courses",
-          text: "Discover platforms offering inclusive online courses with features like captions, transcripts, and screen-reader compatibility.",
-          btn: "Explore Platforms",
+          title: t("education.sections.onlineLearning.cards.courses.title"),
+          text: t("education.sections.onlineLearning.cards.courses.text"),
+          btn: t("education.sections.onlineLearning.cards.courses.btn"),
           link: "https://hayat-stg.tawasal.org.sa/ar", // منصة حياة
         },
         {
           img: CardImg2,
-          title: "Virtual Workshops & Webinars",
-          text: "Participate in live and recorded workshops designed to be fully accessible for all learners.",
-          btn: "Find Workshops",
+          title: t("education.sections.onlineLearning.cards.workshops.title"),
+          text: t("education.sections.onlineLearning.cards.workshops.text"),
+          btn: t("education.sections.onlineLearning.cards.workshops.btn"),
           link: "https://npd-egypt.net/", // National Network for Persons with Disabilities (Ta’heel)
         },
         {
           img: CardImg3,
-          title: "Digital Resource Libraries",
-          text: "Access a curated collection of e-books, articles, and educational materials in accessible formats.",
-          btn: "Browse Library",
+          title: t("education.sections.onlineLearning.cards.library.title"),
+          text: t("education.sections.onlineLearning.cards.library.text"),
+          btn: t("education.sections.onlineLearning.cards.library.btn"),
           link: "https://www.momkenpwd.org/", // Momken Foundation
         },
       ],
     },
 
     {
-      title: "Vocational Training Programs",
+      title: t("education.sections.vocationalTraining.title"),
       cards: [
         {
           img: CardImg11,
-          title: "Skills Development Programs",
-          text: "Enroll in programs focused on practical skills with adaptive learning environments.",
-          btn: "View Programs",
+          title: t("education.sections.vocationalTraining.cards.skills.title"),
+          text: t("education.sections.vocationalTraining.cards.skills.text"),
+          btn: t("education.sections.vocationalTraining.cards.skills.btn"),
           link: "https://itqadem.com", // Itqadem – Skills & adaptive training
         },
         {
           img: CardImg12,
-          title: "Career Readiness Training",
-          text: "Workshops and mentorship to prepare for interviews, resumes, and workplace adjustments.",
-          btn: "Start Training",
+          title: t("education.sections.vocationalTraining.cards.career.title"),
+          text: t("education.sections.vocationalTraining.cards.career.text"),
+          btn: t("education.sections.vocationalTraining.cards.career.btn"),
           link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support & training
         },
         {
           img: CardImg13,
-          title: "Certification Courses",
-          text: "Gain industry-recognized certifications through accessible training pathways.",
-          btn: "Get Certified",
+          title: t("education.sections.vocationalTraining.cards.certification.title"),
+          text: t("education.sections.vocationalTraining.cards.certification.text"),
+          btn: t("education.sections.vocationalTraining.cards.certification.btn"),
           link: "https://www.momkenpwd.org/", // Momken Foundation – Certification & training programs
         },
       ],
     },
     {
-      title: "Inclusive University Programs",
+      title: t("education.sections.universityPrograms.title"),
       cards: [
         {
           img: CardImg14,
-          title: "University Accessibility Guides",
-          text: "Information on accessibility features, support services, and accommodations at universities.",
-          btn: "Browse Universities",
+          title: t("education.sections.universityPrograms.cards.guides.title"),
+          text: t("education.sections.universityPrograms.cards.guides.text"),
+          btn: t("education.sections.universityPrograms.cards.guides.btn"),
           link: "https://npd-egypt.net/", // National Network for Persons with Disabilities – university support
         },
-       {
-  img: CardImg15,
-  title: "Disability Support Services",
-  text: "Learn about support centers and programs for disabled students on campus.",
-  btn: "Learn More",
-  link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support services for disabled students
-},
+        {
+          img: CardImg15,
+          title: t("education.sections.universityPrograms.cards.support.title"),
+          text: t("education.sections.universityPrograms.cards.support.text"),
+          btn: t("education.sections.universityPrograms.cards.support.btn"),
+          link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support services for disabled students
+        },
 
         {
           img: CardImg16,
-          title: "Scholarships & Funding",
-          text: "Find scholarships and financial aid for disabled students pursuing higher education.",
-          btn: "View Scholarships",
+          title: t("education.sections.universityPrograms.cards.scholarships.title"),
+          text: t("education.sections.universityPrograms.cards.scholarships.text"),
+          btn: t("education.sections.universityPrograms.cards.scholarships.btn"),
           link: "https://www.tqeem.sa/", // Tqeem Platform – scholarships & funding
         },
       ],
@@ -102,25 +105,20 @@ const Education = () => {
       <section className="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row items-center gap-10">
 
         {/* Text */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
+        <div className="w-full md:w-1/2 text-center md:text-left rtl:text-right">
 
-          <h1 className="text-4xl sm:text-4xl md:text-4xl font-bold mb-6 leading-[1.1] w-full text-sky-600 text-center md:text-left">
-            Empowering Minds, <br />
-            Expanding Horizons <br />
-            Through Education
+          <h1 className="text-4xl sm:text-4xl md:text-4xl font-bold mb-6 leading-[1.1] w-full text-sky-600 text-center md:text-left rtl:text-right">
+            {t("education.hero.title")}
           </h1>
 
 
           <p className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg max-w-[450px] mx-auto md:mx-0">
-            Discover a world of learning opportunities tailored for disabled
-            individuals. From online courses to vocational training and inclusive
-            university programs, StepFree connects you with the resources to
-            achieve your educational goals.
+            {t("education.hero.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <button className="bg-sky-600 dark:bg-sky-500 text-white px-6 py-2 text-sm rounded-md font-medium hover:bg-sky-700 dark:hover:bg-sky-600 transition">
-              Back to Services
+              {t("education.hero.backBtn")}
             </button>
           </div>
         </div>
@@ -162,11 +160,11 @@ const Education = () => {
                   />
 
                   <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="text-black dark:text-gray-100 mb-4 text-left text-xl font-bold">
+                    <h3 className="text-black dark:text-gray-100 mb-4 text-left rtl:text-right text-xl font-bold">
                       {card.title}
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 text-left">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 text-left rtl:text-right">
                       {card.text}
                     </p>
 

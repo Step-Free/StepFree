@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = ({ user, setUser }) => {
-  if (!user) return <p>Please login first</p>;
+  const { t } = useTranslation();
+
+  if (!user) return <p>{t("dashboard.loginFirst")}</p>;
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
@@ -11,14 +14,14 @@ const Dashboard = ({ user, setUser }) => {
 
   return (
     <div>
-      <h2>Welcome, {user.username}!</h2>
-      <h3>Role: {user.role}</h3>
+      <h2>{t("dashboard.welcome", { username: user.username })}</h2>
+      <h3>{t("dashboard.role", { role: user.role })}</h3>
       {user.role === "admin" ? (
-        <p>This is the Admin dashboard</p>
+        <p>{t("dashboard.adminMsg")}</p>
       ) : (
-        <p>This is the User dashboard</p>
+        <p>{t("dashboard.userMsg")}</p>
       )}
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}>{t("dashboard.logout")}</button>
     </div>
   );
 };

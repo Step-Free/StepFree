@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ModeToggle } from "@/components/ThemeProvider/ThemeModeToggle";
 import logo from "@/assets/images/logo.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import {
   Sheet,
@@ -17,12 +18,23 @@ import { useElementHeight } from "@/hooks/useElementsHeight";
 
 const Header = ({ onHeightChange }) => {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
   const location = useLocation();
   const { ref: headerRef } = useElementHeight(onHeightChange);
   const [showAvatarMenu, setShowAvatarMenu] = useState(false);
 
   const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'ar' : 'en';
+    i18n.changeLanguage(newLang);
+  };
 
   const mainNav = [
     { to: "/main", label: "Home", end: true },
@@ -63,11 +75,10 @@ const Header = ({ onHeightChange }) => {
             return (
               <div key={idx} className="relative group">
                 <span
-                  className={`text-sm font-medium transition flex items-center gap-1 cursor-pointer select-none ${
-                    isParentActive
+                  className={`text-sm font-medium transition flex items-center gap-1 cursor-pointer select-none ${isParentActive
                       ? "text-primary underline"
                       : "text-muted-foreground hover:text-primary"
-                  }`}
+                    }`}
                 >
                   {item.label}
                   <svg
@@ -85,16 +96,15 @@ const Header = ({ onHeightChange }) => {
                   </svg>
                 </span>
 
-                <div className="absolute top-full left-0 mt-3 w-56 bg-popover text-popover-foreground rounded-md shadow-lg border border-border opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out z-[100]">
+                <div className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-3 w-56 bg-popover text-popover-foreground rounded-md shadow-lg border border-border opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out z-[100]">
                   {item.dropdown.map((child) => (
                     <NavLink
                       key={child.to}
                       to={child.to}
                       className={({ isActive }) =>
-                        `block px-4 py-2.5 text-sm rounded-md transition-colors ${
-                          isActive
-                            ? "bg-primary text-primary-foreground font-semibold"
-                            : "hover:bg-accent hover:text-accent-foreground text-muted-foreground"
+                        `block px-4 py-2.5 text-sm rounded-md transition-colors ${isActive
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "hover:bg-accent hover:text-accent-foreground text-muted-foreground"
                         }`
                       }
                     >
@@ -112,10 +122,9 @@ const Header = ({ onHeightChange }) => {
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `text-sm font-medium transition ${
-                  isActive
-                    ? "text-primary underline"
-                    : "text-muted-foreground hover:text-primary"
+                `text-sm font-medium transition ${isActive
+                  ? "text-primary underline"
+                  : "text-muted-foreground hover:text-primary"
                 }`
               }
             >
@@ -144,10 +153,10 @@ const Header = ({ onHeightChange }) => {
 
             {/* Avatar dropdown */}
             {showAvatarMenu && (
-              <div className="absolute right-0 mt-2 w-40 bg-popover border border-border rounded-md shadow-lg z-50">
+              <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-40 bg-popover border border-border rounded-md shadow-lg z-50">
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                  className="w-full text-left rtl:text-right px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                 >
                   Log Out
                 </button>
@@ -162,6 +171,13 @@ const Header = ({ onHeightChange }) => {
             Login
           </NavLink>
         )}
+
+        <button
+          onClick={toggleLanguage}
+          className="cursor-pointer px-3 py-1 bg-secondary text-secondary-foreground rounded-md text-sm font-medium hover:bg-accent transition-colors"
+        >
+          {i18n.language === 'en' ? 'ع' : 'En'}
+        </button>
         <ModeToggle />
       </div>
 
@@ -214,16 +230,15 @@ const Header = ({ onHeightChange }) => {
                 return (
                   <div key={idx} className="flex flex-col gap-2">
                     <span className="text-muted-foreground">{item.label}</span>
-                    <div className="flex flex-col gap-1 ml-4">
+                    <div className="flex flex-col gap-1 ml-4 rtl:ml-0 rtl:mr-4">
                       {item.dropdown.map((child) => (
                         <NavLink
                           key={child.to}
                           to={child.to}
                           className={({ isActive }) =>
-                            `block px-2 py-1 text-sm ${
-                              isActive
-                                ? "text-primary font-semibold"
-                                : "text-muted-foreground hover:text-primary"
+                            `block px-2 py-1 text-sm ${isActive
+                              ? "text-primary font-semibold"
+                              : "text-muted-foreground hover:text-primary"
                             }`
                           }
                         >
@@ -241,10 +256,9 @@ const Header = ({ onHeightChange }) => {
                   to={item.to}
                   end={item.end}
                   className={({ isActive }) =>
-                    `text-sm font-medium transition ${
-                      isActive
-                        ? "text-primary font-semibold"
-                        : "text-muted-foreground hover:text-primary"
+                    `text-sm font-medium transition ${isActive
+                      ? "text-primary font-semibold"
+                      : "text-muted-foreground hover:text-primary"
                     }`
                   }
                 >
@@ -257,15 +271,21 @@ const Header = ({ onHeightChange }) => {
             {user && (
               <button
                 onClick={handleLogout}
-                className="mt-4 px-4 py-2 text-sm text-left hover:bg-accent hover:text-accent-foreground"
+                className="mt-4 px-4 py-2 text-sm text-left rtl:text-right hover:bg-accent hover:text-accent-foreground"
               >
                 Log Out
               </button>
             )}
           </nav>
 
-          {/* Mobile Mode Toggle at bottom */}
-          <div className="mt-6 flex justify-center">
+          {/* Mobile Mode Toggle & Lang Switcher at bottom */}
+          <div className="mt-6 flex justify-center items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 bg-secondary text-secondary-foreground rounded-md text-sm font-medium hover:bg-accent transition-colors"
+            >
+              {i18n.language === 'en' ? 'العربية' : 'English'}
+            </button>
             <ModeToggle />
           </div>
         </SheetContent>

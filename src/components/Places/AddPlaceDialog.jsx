@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         title: '',
         desc: '',
@@ -30,7 +32,7 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                 <div className="p-6">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                            Add New Accessible Place
+                            {t('addPlace.title')}
                         </h3>
                         <button
                             onClick={onClose}
@@ -45,7 +47,7 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Place Title *
+                                {t('addPlace.placeTitle')} *
                             </label>
                             <input
                                 type="text"
@@ -53,13 +55,13 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                                 value={formData.title}
                                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder="e.g., Cairo Festival City Mall — New Cairo"
+                                placeholder={t('addPlace.placeholders.title')}
                             />
                         </div>
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Description *
+                                {t('addPlace.description')} *
                             </label>
                             <textarea
                                 required
@@ -67,33 +69,33 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                                 onChange={(e) => setFormData({ ...formData, desc: e.target.value })}
                                 rows={4}
                                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder="Describe the accessibility features..."
+                                placeholder={t('addPlace.placeholders.desc')}
                             />
                         </div>
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Image URL
+                                {t('addPlace.image')}
                             </label>
                             <input
                                 type="url"
                                 value={formData.img}
                                 onChange={(e) => setFormData({ ...formData, img: e.target.value })}
                                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder="https://example.com/image.jpg"
+                                placeholder={t('addPlace.placeholders.img')}
                             />
                         </div>
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Website URL
+                                {t('addPlace.website')}
                             </label>
                             <input
                                 type="url"
                                 value={formData.url}
                                 onChange={(e) => setFormData({ ...formData, url: e.target.value })}
                                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder="https://example.com"
+                                placeholder={t('addPlace.placeholders.url')}
                             />
                         </div>
 
@@ -103,13 +105,13 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                                 onClick={onClose}
                                 className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                             >
-                                Cancel
+                                {t('addPlace.cancel')}
                             </button>
                             <button
                                 type="submit"
                                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                             >
-                                Add Place
+                                {t('addPlace.submit')}
                             </button>
                         </div>
                     </form>
