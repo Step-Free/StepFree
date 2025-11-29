@@ -1,0 +1,14 @@
+@import "./styles/fonts.css"; /* must be first */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/theme.css";
+@import "./styles/colors.css";
+@import "./styles/base.css";
+
+html {
+  overflow-y: scroll; /* ✅ Scrollbar always visible */
+  width: 100%;
+}
+body {
+  width: 100%;
+}
