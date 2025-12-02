@@ -9,11 +9,11 @@ const SignIn = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value.trim() }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent reload
+    e.preventDefault();
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(
@@ -27,10 +27,17 @@ const SignIn = () => {
 
     sessionStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    // Redirect based on role
-    if (user.role === "admin") navigate("/admin/dashboard");
-    else if (user.role === "employer") navigate("/employer/dashboard");
-    else navigate("/main/jobs");
+    // Redirect حسب الدور بعد تسجيل الدخول
+    switch (user.role) {
+      case "admin":
+        navigate("/admin/dashboard", { replace: true });
+        break;
+      case "employer":
+        navigate("/employer/dashboard", { replace: true });
+        break;
+      default:
+        navigate("/", { replace: true }); // Home
+    }
   };
 
   return (
