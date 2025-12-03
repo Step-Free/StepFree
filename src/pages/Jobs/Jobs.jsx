@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { CareerResources } from "@/components/CareerResources/CareerResources";
 import ImageGrid from "@/components/ImagesGrid/ImageGrid";
@@ -10,8 +10,17 @@ import { FeaturedOpportunities as Featured } from "@/components/FeaturedOpportun
 const Jobs = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
   const [selectedJob, setSelectedJob] = useState(null);
+  const [jobs, setJobs] = useState([]);
+
   const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+  
+  useEffect(() => {
+    const storedJobs = JSON.parse(localStorage.getItem("jobs")) || [];
+    setJobs(storedJobs);
+  }, []);
 
   const handleApply = (job) => {
     if (!user) {
@@ -38,6 +47,7 @@ const Jobs = () => {
               </Button>
             </div>
           </div>
+
           <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
             <img
               src="/src/assets/images/Selection.png"
@@ -48,8 +58,9 @@ const Jobs = () => {
         </section>
       </div>
 
+      {/* ========== عرض الوظائف الجديدة من Employer Dashboard ========== */}
       <div className="container mx-auto px-4">
-        <Featured />
+        <Featured jobs={jobs} />
       </div>
 
       <div className="container mx-auto px-4">
