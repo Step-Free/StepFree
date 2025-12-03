@@ -38,7 +38,7 @@ const Home = () => {
       btn: t("home.services.education.btn"),
       img: P1111,
       arr: "→",
-      path: "/services/education",
+      path: "/main/education",
     },
     {
       title: t("home.services.jobs.title"),
@@ -46,7 +46,7 @@ const Home = () => {
       btn: t("home.services.jobs.btn"),
       img: P11,
       arr: "→",
-      path: "/services/jobs",
+      path: "/main/jobs",
     },
     {
       title: t("home.services.places.title"),
@@ -54,7 +54,7 @@ const Home = () => {
       btn: t("home.services.places.btn"),
       img: P111,
       arr: "→",
-      path: "/services/places",
+      path: "/main/places",
     },
   ];
 
@@ -74,14 +74,14 @@ const Home = () => {
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <Button
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/main/about")}
               className="w-full sm:w-[230px] h-[40px] text-sm sm:text-base px-4 py-2"
             >
               {t("home.hero.learnMore")}
             </Button>
 
             <Button
-              onClick={() => navigate("/services/places")}
+              onClick={() => navigate("/main/places")}
               variant="outline"
               className="w-full sm:w-[230px] h-[40px] text-sm sm:text-base px-4 py-2 flex items-center justify-center gap-2 whitespace-nowrap"
             >
