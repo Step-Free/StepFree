@@ -24,7 +24,7 @@ const SignIn = () => {
     } 
     sessionStorage.setItem("loggedInUser", JSON.stringify(user)); 
 
-    // Redirect بعد تسجيل الدخول → Home
+    
     if (user.role === "admin") navigate("/admin/dashboard"); 
     else if (user.role === "employer") navigate("/employer/dashboard"); 
     else navigate("/main"); 

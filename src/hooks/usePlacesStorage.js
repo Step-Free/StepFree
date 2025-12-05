@@ -6,7 +6,7 @@ const STORAGE_KEY = 'accessiblePlaces';
 export const usePlacesStorage = () => {
     const [allPlaces, setAllPlaces] = useState([]);
 
-    // Load places from localStorage on mount
+    
     useEffect(() => {
         const storedPlaces = localStorage.getItem(STORAGE_KEY);
         if (storedPlaces) {
@@ -24,21 +24,20 @@ export const usePlacesStorage = () => {
         }
     }, []);
 
-    // Handle adding a new place
+  
     const addPlace = (newPlace) => {
         const updatedPlaces = [...allPlaces, newPlace];
         setAllPlaces(updatedPlaces);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlaces));
     };
 
-    // Handle removing a place
+  
     const removePlace = (placeTitle) => {
         const updatedPlaces = allPlaces.filter(place => place.title !== placeTitle);
         setAllPlaces(updatedPlaces);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlaces));
     };
 
-    // Reset to default places
     const resetPlaces = () => {
         setAllPlaces(defaultPlaces);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPlaces));

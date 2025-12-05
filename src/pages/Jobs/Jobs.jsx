@@ -58,7 +58,7 @@ const Jobs = () => {
         </section>
       </div>
 
-      {/* ========== عرض الوظائف الجديدة من Employer Dashboard ========== */}
+    
       <div className="container mx-auto px-4">
         <Featured jobs={jobs} />
       </div>

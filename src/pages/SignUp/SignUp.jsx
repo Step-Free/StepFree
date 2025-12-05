@@ -28,6 +28,13 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    
+    if (form.password.length < 8) {
+      alert("Password must be at least 8 characters");
+      return;
+    }
+
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const exists = users.find((u) => u.username === form.username);
 
@@ -47,6 +54,7 @@ const SignUp = () => {
 
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
+
     alert("Sign up successful! Please sign in.");
     navigate("/auth/sign-in");
   };

@@ -45,7 +45,7 @@ const ApplyFormPage = ({ job, onClose }) => {
     }
 
     localStorage.setItem("submissions", JSON.stringify(submissions));
-    onClose(); // close modal
+    onClose(); 
   };
 
   return (

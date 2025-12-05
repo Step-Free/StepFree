@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Briefcase } from "lucide-react"; // optional icons
+import { MapPin, Clock, Briefcase } from "lucide-react"; 
 import { useTranslation } from "react-i18next";
 
 import resources from "@/data/careerResources.json";

@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     setSubmissions(allSubmissions);
 
     const allUsers = JSON.parse(localStorage.getItem("users")) || [];
-    // Filter only employee and employer
+  
     const filteredUsers = allUsers.filter(
       (u) => u.role === "employee" || u.role === "employer"
     );
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
       )
     );
 
-    // Also delete user's submissions
+    
     const updatedSubmissions = submissions.filter(
       (s) => s.username !== userToDelete.username
     );
@@ -71,7 +71,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-muted/40 p-6 md:p-8">
-      {/* Header */}
+      
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
         </Button>
       </div>
 
-      {/* Stats Cards */}
+    
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -110,10 +110,10 @@ const AdminDashboard = () => {
         </Card>
       </div>
 
-      {/* Main Content Grid */}
+    
       <div className="grid gap-8 lg:grid-cols-1">
 
-        {/* Users Section */}
+        
         <Card className="col-span-1">
           <CardHeader>
             <CardTitle>Users</CardTitle>
@@ -162,7 +162,7 @@ const AdminDashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Applications Section */}
+      
         <Card className="col-span-1">
           <CardHeader>
             <CardTitle>Applications</CardTitle>

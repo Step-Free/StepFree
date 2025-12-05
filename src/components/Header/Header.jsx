@@ -51,7 +51,7 @@ const Header = ({ onHeightChange }) => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("loggedInUser");
-    navigate("/auth/sign-in"); // client-side navigation
+    navigate("/auth/sign-in"); 
   };
 
   return (
@@ -59,13 +59,13 @@ const Header = ({ onHeightChange }) => {
       ref={headerRef}
       className="sticky top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm border-b border-border px-4 py-4 md:py-6 transition-all flex items-center justify-between"
     >
-      {/* Left: Logo */}
+    
       <NavLink to="/main" className="flex items-center gap-2">
         <img src={logo} alt="Logo" className="w-8 h-8 inline" />
         <span className="text-primary text-2xl font-bold italic">StepFree</span>
       </NavLink>
 
-      {/* Center: Desktop Nav */}
+    
       <nav className="hidden md:flex flex-1 justify-center items-center gap-6">
         {mainNav.map((item, idx) => {
           if (item.dropdown) {
@@ -137,7 +137,7 @@ const Header = ({ onHeightChange }) => {
         })}
       </nav>
 
-      {/* Right: Desktop User & Theme Toggle */}
+      
       <div className="hidden md:flex items-center gap-4 relative">
         {user ? (
           <div className="relative">
@@ -154,7 +154,7 @@ const Header = ({ onHeightChange }) => {
               </p>
             </div>
 
-            {/* Avatar dropdown */}
+          
             {showAvatarMenu && (
               <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-40 bg-popover border border-border rounded-md shadow-lg z-50">
                 <button
@@ -184,7 +184,7 @@ const Header = ({ onHeightChange }) => {
         <ModeToggle />
       </div>
 
-      {/* Mobile Burger Menu */}
+      
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" className="md:hidden">
@@ -206,7 +206,7 @@ const Header = ({ onHeightChange }) => {
         </SheetTrigger>
 
         <SheetContent side="right" className="w-64 flex flex-col p-6">
-          {/* Welcome / Avatar first */}
+        
           {user ? (
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
@@ -226,7 +226,7 @@ const Header = ({ onHeightChange }) => {
             </NavLink>
           )}
 
-          {/* Navigation */}
+        
           <nav className="flex flex-col gap-4">
             {mainNav.map((item, idx) => {
               if (item.dropdown) {
@@ -272,7 +272,7 @@ const Header = ({ onHeightChange }) => {
               );
             })}
 
-            {/* Mobile Logout */}
+          
             {user && (
               <button
                 onClick={handleLogout}
@@ -283,7 +283,7 @@ const Header = ({ onHeightChange }) => {
             )}
           </nav>
 
-          {/* Mobile Mode Toggle & Lang Switcher at bottom */}
+          
           <div className="mt-6 flex justify-center items-center gap-4">
             <button
               onClick={toggleLanguage}

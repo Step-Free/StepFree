@@ -60,7 +60,7 @@ const Home = () => {
 
   return (
     <div className="bg-card text-foreground">
-      {/* Hero Section */}
+    
       <section className="container mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-10">
         <div className="w-full md:w-1/2 text-center md:text-left rtl:text-right">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight max-w-[500px] mx-auto md:mx-0 flex flex-col gap-1 text-primary">
@@ -95,7 +95,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      
       <section className="bg-muted py-20">
         <div className="container mx-auto text-center px-6">
           <h3 className="text-3xl font-semibold text-primary mb-4">{t("home.commitment.title")}</h3>
@@ -118,7 +118,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+    
       <section className="py-20">
         <div className="container mx-auto text-center px-6">
           <h3 className="text-3xl font-semibold text-primary mb-12">{t("home.services.title")}</h3>

@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <Navigate to="/auth/sign-in" replace />,
   },
 
-  // Auth routes
+  
   {
     path: "/auth",
     element: <AuthLayout />,
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     ],
   },
 
-  // Main (protected) routes
+  
   {
     path: "/main",
     element: (
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     ],
   },
 
-  // Admin dashboard (protected)
+  
   {
     path: "/admin/dashboard",
     element: (
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     ),
   },
 
-  // Employer dashboard (protected)
+
   {
     path: "/employer/dashboard",
     element: (
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
     ),
   },
 
-  // Catch-all → redirect to login
+  
   {
     path: "*",
     element: <Navigate to="/auth/sign-in" replace />,
