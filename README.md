@@ -15,7 +15,6 @@ These are the team members who contributed to this project:
 
 ## 🎬 Demo Link
 Watch a demo of the project here:  
-https://www.loom.com/share/d8b62b84ff8841ffafdc4e0e8c47e4d7
-
+https://www.loom.com/share/c8034571a4d241ea8fe33c7b7edb4db3
 
 ✨ Thank you for checking out our project!
