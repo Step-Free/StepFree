@@ -1,10 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PlaceCard from '@/components/ui/PlaceCard';
-import { featuredData } from '@/lib/all_places';
+import { featuredData } from '@/data/all_places';
+import { getLocalizedContent } from '@/utils/translationUtils';
 
 const FeaturedSpots = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <section className="py-16 bg-gray-50 dark:bg-black">
             <div className="max-w-7xl mx-auto px-4">
@@ -16,8 +17,8 @@ const FeaturedSpots = () => {
                         <PlaceCard
                             key={place.title}
                             imageUrl={place.img}
-                            title={place.title}
-                            description={place.desc}
+                            title={getLocalizedContent(place.title, t, i18n.language)}
+                            description={getLocalizedContent(place.desc, t, i18n.language)}
                             url={place.url}
                         />
                     ))}

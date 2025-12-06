@@ -1,10 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PlaceCard from '@/components/ui/PlaceCard';
+import { getLocalizedContent } from '@/utils/translationUtils';
 
 const AllPlaces = ({ searchQuery, allPlaces }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const filteredPlaces = allPlaces
+        .map(place => ({
+            ...place,
+            title: getLocalizedContent(place.title, t, i18n.language),
+            desc: getLocalizedContent(place.desc, t, i18n.language)
+        }))
         .filter((place) =>
             place.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             place.desc.toLowerCase().includes(searchQuery.toLowerCase())

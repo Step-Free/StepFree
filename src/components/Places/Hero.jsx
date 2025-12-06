@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getLocalizedContent } from '@/utils/translationUtils';
 
 const SearchIcon = ({ className = "w-6 h-6" }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -8,10 +9,16 @@ const SearchIcon = ({ className = "w-6 h-6" }) => (
 );
 
 const Hero = ({ searchQuery, setSearchQuery, allPlaces }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [showDropdown, setShowDropdown] = useState(false);
 
-    const filteredDropdown = allPlaces.filter((place) =>
+    const translatedPlaces = allPlaces.map(place => ({
+        ...place,
+        title: getLocalizedContent(place.title, t, i18n.language),
+        desc: getLocalizedContent(place.desc, t, i18n.language)
+    }));
+
+    const filteredDropdown = translatedPlaces.filter((place) =>
         place.title.toLowerCase().includes(searchQuery.toLowerCase())
     ).slice(0, 5);
 

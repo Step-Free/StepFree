@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { allAccessiblePlaces as defaultPlaces } from '@/lib/all_places';
+import { allAccessiblePlaces as defaultPlaces } from '@/data/all_places';
 
 const STORAGE_KEY = 'accessiblePlaces';
 
 export const usePlacesStorage = () => {
     const [allPlaces, setAllPlaces] = useState([]);
 
-    
+
     useEffect(() => {
         const storedPlaces = localStorage.getItem(STORAGE_KEY);
         if (storedPlaces) {
@@ -24,14 +24,14 @@ export const usePlacesStorage = () => {
         }
     }, []);
 
-  
+
     const addPlace = (newPlace) => {
         const updatedPlaces = [...allPlaces, newPlace];
         setAllPlaces(updatedPlaces);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlaces));
     };
 
-  
+
     const removePlace = (placeTitle) => {
         const updatedPlaces = allPlaces.filter(place => place.title !== placeTitle);
         setAllPlaces(updatedPlaces);

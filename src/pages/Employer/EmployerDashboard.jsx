@@ -18,6 +18,7 @@ import {
   LayoutDashboard,
   X
 } from "lucide-react";
+import { toast } from "sonner";
 
 const EmployerDashboard = () => {
   const navigate = useNavigate();
@@ -83,8 +84,8 @@ const EmployerDashboard = () => {
       image: "",
     });
     setShowPostJob(false);
-    
-    alert("Job posted successfully!");
+
+    toast.success("Job posted successfully!");
   };
 
   const handleDeleteSubmission = (index) => {
@@ -113,7 +114,7 @@ const EmployerDashboard = () => {
 
   return (
     <div className="min-h-screen bg-muted/40 p-6 md:p-8">
-      
+
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
@@ -128,7 +129,7 @@ const EmployerDashboard = () => {
         </Button>
       </div>
 
-      
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -154,7 +155,7 @@ const EmployerDashboard = () => {
 
       <div className="grid gap-8 lg:grid-cols-1">
 
-      
+
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold tracking-tight">My Jobs</h2>
@@ -277,7 +278,7 @@ const EmployerDashboard = () => {
           )}
         </div>
 
-      
+
         <Card>
           <CardHeader>
             <CardTitle>Applications</CardTitle>

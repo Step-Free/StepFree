@@ -7,26 +7,26 @@ import { Container } from "@/components/ui/container";
 
 const MainLayout = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
-  const { pathname } = useLocation(); 
+  const { pathname } = useLocation();
 
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
     <div className="flex flex-col min-h-screen">
-    
+
       <Header onHeightChange={setHeaderHeight} />
 
-    
-      <main className="flex-1" style={{ paddingTop: `${0}px` }}>
+
+      <main className="flex-1" style={{ paddingTop: `${headerHeight}px` }}>
         <Container>
           <Outlet />
         </Container>
       </main>
 
-    
+
       <Footer />
     </div>
   );

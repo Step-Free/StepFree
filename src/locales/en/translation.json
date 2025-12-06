@@ -1,4 +1,26 @@
 {
+  "applyForm": {
+    "title": "Apply for",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "resume": "Resume Link",
+    "submit": "Submit Application",
+    "update": "Update Application",
+    "cancel": "Cancel",
+    "successUpdate": "Application updated successfully!",
+    "successSubmit": "Application submitted successfully!"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Our Services",
+    "jobs": "Jobs",
+    "places": "Accessible Places",
+    "education": "Education",
+    "welcome": "Welcome",
+    "logout": "Log Out",
+    "login": "Login"
+  },
   "hero": {
     "title": "Discover Accessible Places",
     "subtitle": "Find and explore inclusive locations designed for all. Search here for places with the accessibility features you need.",
@@ -32,7 +54,8 @@
     }
   },
   "common": {
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "readMore": "Read More"
   },
   "home": {
     "hero": {
@@ -219,6 +242,7 @@
   "auth": {
     "signIn": {
       "title": "Login",
+      "subtitle": "Welcome back to StepFree",
       "usernamePlaceholder": "Username",
       "passwordPlaceholder": "Password",
       "button": "Login",
@@ -227,15 +251,18 @@
       "alerts": {
         "fillAll": "⚠️ Please fill in all fields!",
         "userNotFound": "⚠️ Username not found. Please sign up first!",
+        "welcomeBack": "Welcome back!",
         "wrongPassword": "⚠️ Wrong password!"
       }
     },
     "signUp": {
       "title": "Register",
+      "subtitle": "Join our community today",
       "firstNamePlaceholder": "First Name",
       "lastNamePlaceholder": "Last Name",
       "usernamePlaceholder": "Username",
       "passwordPlaceholder": "Password (min 8 chars)",
+      "rolePlaceholder": "Select Account Type",
       "button": "Register",
       "hasAccount": "Already have an account?",
       "loginLink": "Login",
@@ -254,5 +281,71 @@
     "userMsg": "This is the User dashboard",
     "logout": "Logout",
     "loginFirst": "Please login first"
+  },
+  "placesItems": {
+    "gem": {
+      "title": "Grand Egyptian Museum (GEM) — Giza",
+      "desc": "Modern museum designed with accessibility requirements: pathways, elevators and ramps, exhibition areas with audio/visual aids and designated parking."
+    },
+    "nmec": {
+      "title": "National Museum of Egyptian Civilization (NMEC) — Fustat (Cairo)",
+      "desc": "Museum equipped with accessibility facilities: elevators, sometimes free wheelchairs, and brochures/materials in alternative formats for visitors with disabilities."
+    },
+    "bibalex": {
+      "title": "Bibliotheca Alexandrina — Alexandria",
+      "desc": "Library and cultural center with adapted facilities: elevators, services for the visually impaired (Taha Hussein Library) and excellent internal accessibility."
+    },
+    "azhar": {
+      "title": "Al-Azhar Park — Cairo",
+      "desc": "Large public park with wide pathways and seating areas, easily accessible from designated entrances (suitable for picnics and light outdoor activities)."
+    },
+    "tahrir": {
+      "title": "The Egyptian Museum (Tahrir) — Cairo",
+      "desc": "Historic museum with elevators and main corridors partially adapted for wheelchair access (some older areas may be less accessible)."
+    },
+    "pyramids": {
+      "title": "Pyramids Plateau & Solar Boat Museum — Giza",
+      "desc": "Outdoor area (general views) wheelchair accessible on most new paths, and the Solar Boat Museum has been developed with accessible entrances and ramps."
+    },
+    "cfc": {
+      "title": "Cairo Festival City Mall — New Cairo",
+      "desc": "Modern shopping center with wide corridors, elevators and adapted parking, often with wheelchair request services available from building management."
+    },
+    "moe": {
+      "title": "Mall of Egypt — 6th of October",
+      "desc": "Large mall equipped with entrances, elevators and public accessibility facilities; very suitable for group visits with internal maps to help navigation."
+    },
+    "citystars": {
+      "title": "City Stars Mall — Heliopolis",
+      "desc": "Large mall known for spacious areas, elevators and adapted facades to facilitate navigation."
+    },
+    "planetarium": {
+      "title": "Bibliotheca Alexandria Planetarium / Science Center — Alexandria",
+      "desc": "Science center affiliated with the library with adapted facilities, comfortable shows and halls equipped for users with disabilities."
+    },
+    "nubian": {
+      "title": "Nubian Museum — Aswan",
+      "desc": "Modern museum with elevators and adapted corridors, often with accessible services and information for those with special needs."
+    },
+    "alex_national": {
+      "title": "Alexandria National Museum",
+      "desc": "Contemporary museum with internal corridors and elevators adapted for easy navigation and visitors with disabilities."
+    },
+    "sound_light": {
+      "title": "Sound & Light (Pyramids) — Giza",
+      "desc": "Sound and light show providing designated wheelchair areas in front of the stage; the outdoor viewing area is generally easily accessible."
+    },
+    "khan": {
+      "title": "Khan El-Khalili — Cairo",
+      "desc": "Many main corridors in the market are large and allow navigation (preferable to move through main paths and developed areas)."
+    },
+    "opera": {
+      "title": "Cairo Opera House",
+      "desc": "Outdoor areas, plazas and Cairo Opera entrances are adapted and provide suitable access for viewers/visitors on most levels."
+    },
+    "gezira": {
+      "title": "Gezira / Fish Garden — Zamalek",
+      "desc": "Green spaces and gardens on Zamalek Island with walkways and seating areas relatively adapted for safe and comfortable navigation."
+    }
   }
 }
