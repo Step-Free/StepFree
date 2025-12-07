@@ -39,8 +39,23 @@ const Header = ({ onHeightChange }) => {
   const { ref: headerRef } = useElementHeight(onHeightChange);
   const [scrolled, setScrolled] = useState(false);
 
-  // Provide safe fallback for user data
-  const user = JSON.parse(sessionStorage.getItem("loggedInUser") || "null");
+  // State for user data
+  const [user, setUser] = useState(() => JSON.parse(sessionStorage.getItem("loggedInUser") || "null"));
+
+  useEffect(() => {
+    const handleUserUpdate = () => {
+      setUser(JSON.parse(sessionStorage.getItem("loggedInUser") || "null"));
+    };
+
+    window.addEventListener("userUpdated", handleUserUpdate);
+    // Also listen for storage events for cross-tab sync
+    window.addEventListener("storage", handleUserUpdate);
+
+    return () => {
+      window.removeEventListener("userUpdated", handleUserUpdate);
+      window.removeEventListener("storage", handleUserUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
@@ -62,6 +77,7 @@ const Header = ({ onHeightChange }) => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("loggedInUser");
+    setUser(null);
     navigate("/auth/sign-in");
   };
 
@@ -163,10 +179,10 @@ const Header = ({ onHeightChange }) => {
             size="icon"
             onClick={toggleLanguage}
             className="rounded-full w-9 h-9 text-muted-foreground hover:text-foreground hover:bg-accent"
-            title="Toggle Language"
+            title={t("header.toggleLanguage")}
           >
             <Globe className="w-4 h-4" />
-            <span className="sr-only">Toggle Language</span>
+            <span className="sr-only">{t("header.toggleLanguage")}</span>
           </Button>
 
           <ModeToggle />
@@ -177,8 +193,12 @@ const Header = ({ onHeightChange }) => {
             <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <div className="flex items-center gap-2 cursor-pointer p-1 pr-3 rounded-full hover:bg-accent transition-colors border border-transparent hover:border-border/40">
-                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm ring-2 ring-background">
-                    {user.firstName?.[0]?.toUpperCase()}
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm ring-2 ring-background overflow-hidden relative">
+                    {user.profileImage ? (
+                      <img src={user.profileImage} alt="User" className="w-full h-full object-cover" />
+                    ) : (
+                      user.firstName?.[0]?.toUpperCase()
+                    )}
                   </div>
                   <div className="flex flex-col items-start gap-0.5">
                     <span className="text-xs font-semibold leading-none">{user.firstName}</span>
@@ -187,7 +207,13 @@ const Header = ({ onHeightChange }) => {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuLabel>{t("header.welcome")}</DropdownMenuLabel>
+
+                <DropdownMenuItem asChild className="cursor-pointer">
+                  <NavLink to="/main/profile" className="flex items-center w-full">
+                    <User className="w-4 h-4 mr-2" />
+                    {t("header.profile")}
+                  </NavLink>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout} className="text-destructive focus:text-destructive cursor-pointer">
                   <LogOut className="w-4 h-4 mr-2" />
@@ -219,7 +245,7 @@ const Header = ({ onHeightChange }) => {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="rounded-full border-border/60">
+              <Button variant="outline" size="icon" className="rounded-full border-border/60" aria-label={t("header.menu")}>
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
@@ -230,8 +256,12 @@ const Header = ({ onHeightChange }) => {
 
               {user ? (
                 <div className="flex flex-col items-center gap-3 mb-8 p-4 bg-muted/30 rounded-2xl border border-border/50">
-                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xl font-bold shadow-lg">
-                    {user.firstName?.[0]}
+                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xl font-bold shadow-lg overflow-hidden relative">
+                    {user.profileImage ? (
+                      <img src={user.profileImage} alt="User" className="w-full h-full object-cover" />
+                    ) : (
+                      user.firstName?.[0]
+                    )}
                   </div>
                   <div className="text-center">
                     <p className="font-semibold text-lg">{user.firstName} {user.lastName}</p>
@@ -292,14 +322,26 @@ const Header = ({ onHeightChange }) => {
                 })}
 
                 {user && (
-                  <Button
-                    variant="ghost"
-                    onClick={handleLogout}
-                    className="mt-auto justify-start text-destructive hover:text-destructive hover:bg-destructive/10 rounded-xl h-12 px-4 gap-3"
-                  >
-                    <LogOut className="w-5 h-5" />
-                    {t("header.logout")}
-                  </Button>
+                  <>
+                    <Button
+                      variant="ghost"
+                      asChild
+                      className="justify-start rounded-xl h-12 px-4 gap-3 mb-1"
+                    >
+                      <NavLink to="/main/profile">
+                        <User className="w-5 h-5" />
+                        {t("header.profile")}
+                      </NavLink>
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={handleLogout}
+                      className="mt-auto justify-start text-destructive hover:text-destructive hover:bg-destructive/10 rounded-xl h-12 px-4 gap-3"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      {t("header.logout")}
+                    </Button>
+                  </>
                 )}
               </nav>
             </SheetContent>
