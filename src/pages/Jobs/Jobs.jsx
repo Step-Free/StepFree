@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CareerResources } from "@/components/CareerResources/CareerResources";
 import ImageGrid from "@/components/ImagesGrid/ImageGrid";
@@ -14,9 +14,9 @@ const Jobs = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [jobs, setJobs] = useState([]);
 
+  const featuredRef = useRef(null);
   const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
 
-  
   useEffect(() => {
     const storedJobs = JSON.parse(localStorage.getItem("jobs")) || [];
     setJobs(storedJobs);
@@ -32,17 +32,24 @@ const Jobs = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <div className="container mx-auto px-4">
         <section className="flex flex-col md:flex-row gap-8 items-center justify-center min-h-screen">
           <div className="flex flex-col w-full md:w-1/2 justify-center text-center md:text-left rtl:text-right">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-6 md:mb-8">
               {t("jobs.hero.title")}
             </h1>
+
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 md:mb-10">
               {t("jobs.hero.description")}
             </p>
+
             <div className="flex justify-center md:justify-start">
-              <Button onClick={() => handleApply({ title: "General Job" })}>
+              <Button
+                onClick={() =>
+                  featuredRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 {t("jobs.hero.button")}
               </Button>
             </div>
@@ -58,21 +65,24 @@ const Jobs = () => {
         </section>
       </div>
 
-    
-      <div className="container mx-auto px-4">
-        <Featured jobs={jobs} />
+      {/* Featured Opportunities */}
+      <div className="container mx-auto px-4" ref={featuredRef}>
+        <Featured jobs={jobs} onApply={handleApply} />
       </div>
 
-      <div className="container mx-auto px-4">
+      {/* Career Resources */}
+      <div className="container mx-auto px-4 mt-16">
         <CareerResources />
       </div>
 
+      {/* Partner / Images Section */}
       <div id="Partner" className="p-6 my-16 bg-secondary">
         <div className="container mx-auto px-4">
           <ImageGrid />
         </div>
       </div>
 
+      {/* Apply Modal */}
       {selectedJob && (
         <ApplyFormPage job={selectedJob} onClose={() => setSelectedJob(null)} />
       )}

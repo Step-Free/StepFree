@@ -265,7 +265,34 @@
       "button": "Explore Job Listings"
     },
     "resources": {
-      "title": "Empowering Career Resources"
+      "title": "Empowering Career Resources",
+      "description": "Explore career resources for people with disabilities in Egypt.",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Employment Service for Persons with Disabilities",
+          "description": "Official application form to support persons with disabilities seeking job opportunities in Egypt.",
+          "buttonLabel": "View Details",
+          "image": "/src/assets/images/img1.png",
+          "link": "https://psm.gov.eg/services/173"
+        },
+        {
+          "id": 2,
+          "title": "Jobility – Disability Job Platform",
+          "description": "An Egyptian platform connecting persons with disabilities to supportive and inclusive employers.",
+          "buttonLabel": "View Details",
+          "image": "/src/assets/images/img2.png",
+          "link": "https://jobilityapp.com"
+        },
+        {
+          "id": 3,
+          "title": "Helm Egypt – Disability Employment Platform",
+          "description": "A practical and effective platform for recruiting and supporting persons with disabilities in Egypt.",
+          "buttonLabel": "View Details",
+          "image": "/src/assets/images/img3.png",
+          "link": "https://recruitment.helmegypt.org"
+        }
+      ]
     },
     "opportunities": {
       "title": "Featured Opportunities"

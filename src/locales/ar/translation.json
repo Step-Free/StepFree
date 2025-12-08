@@ -265,7 +265,34 @@
       "button": "استكشف قوائم الوظائف"
     },
     "resources": {
-      "title": "موارد مهنية تمكينية"
+      "title": "موارد مهنية داعمة",
+      "description": "استكشف الموارد المهنية للأشخاص ذوي الإعاقة في مصر.",
+      "cards": [
+        {
+          "id": 1,
+          "title": "خدمة توظيف الأشخاص ذوي الإعاقة",
+          "description": "نموذج الطلب الرسمي لدعم الأشخاص ذوي الإعاقة الباحثين عن فرص عمل في مصر.",
+          "buttonLabel": "عرض التفاصيل",
+          "image": "/src/assets/images/img1.png",
+          "link": "https://psm.gov.eg/services/173"
+        },
+        {
+          "id": 2,
+          "title": "Jobility – منصة وظائف لذوي الإعاقة",
+          "description": "منصة مصرية مخصصة لربط الأشخاص ذوي الإعاقة بأصحاب عمل داعمين وشاملين.",
+          "buttonLabel": "عرض التفاصيل",
+          "image": "/src/assets/images/img2.png",
+          "link": "https://jobilityapp.com"
+        },
+        {
+          "id": 3,
+          "title": "Helm Egypt – منصة توظيف ذوي الإعاقة",
+          "description": "منصة توظيف وتوظيف فعّالة لذوي الإعاقة في مصر.",
+          "buttonLabel": "عرض التفاصيل",
+          "image": "/src/assets/images/img3.png",
+          "link": "https://recruitment.helmegypt.org"
+        }
+      ]
     },
     "opportunities": {
       "title": "فرص مميزة"
