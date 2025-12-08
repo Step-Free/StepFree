@@ -1,34 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CareerResources } from "@/components/CareerResources/CareerResources";
 import ImageGrid from "@/components/ImagesGrid/ImageGrid";
-import { useTranslation } from "react-i18next";
-import ApplyFormPage from "@/pages/ApplyFormPage";
-import { useNavigate } from "react-router-dom";
 import { FeaturedOpportunities as Featured } from "@/components/FeaturedOpportunities/FeaturedOpportunities";
 
 const Jobs = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [jobs, setJobs] = useState([]);
-
   const featuredRef = useRef(null);
-  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     const storedJobs = JSON.parse(localStorage.getItem("jobs")) || [];
     setJobs(storedJobs);
   }, []);
-
-  const handleApply = (job) => {
-    if (!user) {
-      navigate("/auth/sign-in");
-      return;
-    }
-    setSelectedJob(job);
-  };
 
   return (
     <>
@@ -67,7 +55,7 @@ const Jobs = () => {
 
       {/* Featured Opportunities */}
       <div className="container mx-auto px-4" ref={featuredRef}>
-        <Featured jobs={jobs} onApply={handleApply} />
+        <Featured jobs={jobs} />
       </div>
 
       {/* Career Resources */}
@@ -81,11 +69,6 @@ const Jobs = () => {
           <ImageGrid />
         </div>
       </div>
-
-      {/* Apply Modal */}
-      {selectedJob && (
-        <ApplyFormPage job={selectedJob} onClose={() => setSelectedJob(null)} />
-      )}
     </>
   );
 };

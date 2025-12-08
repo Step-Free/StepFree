@@ -36,11 +36,18 @@ const SignUp = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate network
-    await new Promise(r => setTimeout(r, 800));
+    // Simulate network delay
+    await new Promise((r) => setTimeout(r, 800));
 
     if (form.password.length < 8) {
       toast.error(t("auth.signUp.alerts.passwordLength"));
+      setLoading(false);
+      return;
+    }
+
+    // Prevent signing up as admin manually
+    if (form.role === "admin") {
+      toast.error("You cannot sign up as admin!");
       setLoading(false);
       return;
     }
@@ -72,7 +79,7 @@ const SignUp = () => {
 
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-background overflow-hidden">
-      {/* Background Ambience */}
+      {/* Background Effects */}
       <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-4 right-4 z-10">
         <Button
@@ -95,14 +102,15 @@ const SignUp = () => {
           <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 ring-1 ring-primary/20">
             <img src={logo} alt="Logo" className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">{t("auth.signUp.title")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            {t("auth.signUp.title")}
+          </h2>
           <p className="text-sm text-muted-foreground mt-2 text-center">
             {t("auth.signUp.subtitle")}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-
           <div className="grid grid-cols-2 gap-4">
             <div className="relative">
               <UserCircle className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -156,7 +164,9 @@ const SignUp = () => {
             <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
             <Select
               value={form.role}
-              onValueChange={(val) => setForm((prev) => ({ ...prev, role: val }))}
+              onValueChange={(val) =>
+                setForm((prev) => ({ ...prev, role: val }))
+              }
               required
             >
               <SelectTrigger className="pl-9 bg-background/50 border-input/60 focus:bg-background transition-all w-full">
@@ -165,7 +175,6 @@ const SignUp = () => {
               <SelectContent>
                 <SelectItem value="employee">Employee</SelectItem>
                 <SelectItem value="employer">Employer</SelectItem>
-                <SelectItem value="admin">Admin</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -175,7 +184,9 @@ const SignUp = () => {
             disabled={loading}
             className="w-full h-11 mt-2 text-base font-medium shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
           >
-            {loading ? t("common.loading") : (
+            {loading ? (
+              t("common.loading")
+            ) : (
               <span className="flex items-center gap-2">
                 {t("auth.signUp.button")} <ArrowRight className="w-4 h-4" />
               </span>
@@ -194,8 +205,10 @@ const SignUp = () => {
 
             <p className="text-sm text-muted-foreground">
               {t("auth.signUp.hasAccount")}{" "}
-              <Link to="/auth/sign-in"
-                className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors">
+              <Link
+                to="/auth/sign-in"
+                className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors"
+              >
                 {t("auth.signUp.loginLink")}
               </Link>
             </p>

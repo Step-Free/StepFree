@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -10,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 import ApplyFormPage from "@/pages/ApplyFormPage";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +27,23 @@ export const FeaturedOpportunities = ({ jobs = [] }) => {
       return;
     }
     setSelectedJob(job);
+  };
+
+  const handleEdit = (job) => {
+    const updatedTitle = prompt("Edit job title:", job.title);
+    if (!updatedTitle) return;
+
+    const updatedJobs = jobs.map((j) =>
+      j.id === job.id ? { ...j, title: updatedTitle } : j
+    );
+    localStorage.setItem("jobs", JSON.stringify(updatedJobs));
+    window.location.reload();
+  };
+
+  const handleDelete = (jobId) => {
+    const updatedJobs = jobs.filter((j) => j.id !== jobId);
+    localStorage.setItem("jobs", JSON.stringify(updatedJobs));
+    window.location.reload();
   };
 
   return (
@@ -63,15 +80,13 @@ export const FeaturedOpportunities = ({ jobs = [] }) => {
                     variant="secondary"
                     className="flex items-center gap-1"
                   >
-                    <MapPin className="w-4 h-4" />
-                    {job.location}
+                    <MapPin className="w-4 h-4" /> {job.location}
                   </Badge>
                   <Badge
                     variant="secondary"
                     className="flex items-center gap-1"
                   >
-                    <Clock className="w-4 h-4" />
-                    {job.employmentType}
+                    <Clock className="w-4 h-4" /> {job.employmentType}
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground flex-grow">
@@ -79,10 +94,29 @@ export const FeaturedOpportunities = ({ jobs = [] }) => {
                 </p>
               </CardContent>
 
-              <CardFooter className="pb-6 flex justify-end">
+              <CardFooter className="pb-6 flex justify-between">
                 <Button variant="outline" onClick={() => handleApply(job)}>
                   Apply Now
                 </Button>
+
+                {(user?.role === "employer" || user?.role === "admin") && (
+                  <div className="flex gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => handleEdit(job)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => handleDelete(job.id)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                )}
               </CardFooter>
             </Card>
           ))}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Briefcase, User, Mail, FileText, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const ApplyFormPage = ({ job, onClose }) => {
   const { t } = useTranslation();
@@ -21,7 +21,6 @@ const ApplyFormPage = ({ job, onClose }) => {
   const [submissions, setSubmissions] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // User availability check
   const loggedInUser = sessionStorage.getItem("loggedInUser");
   const user = loggedInUser ? JSON.parse(loggedInUser) : null;
 
@@ -29,7 +28,18 @@ const ApplyFormPage = ({ job, onClose }) => {
     const allSubmissions =
       JSON.parse(localStorage.getItem("submissions")) || [];
     setSubmissions(allSubmissions);
-  }, []);
+
+    // Load existing application if exists
+    const existing = allSubmissions.find(
+      (s) => s.jobId === job.id && s.username === user?.username
+    );
+    if (existing)
+      setForm({
+        fullName: existing.fullName,
+        email: existing.email,
+        resume: existing.resume,
+      });
+  }, [job.id, user?.username]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,8 +51,7 @@ const ApplyFormPage = ({ job, onClose }) => {
     if (!user) return;
 
     setIsSubmitting(true);
-    // Simulate network delay
-    await new Promise(r => setTimeout(r, 600));
+    await new Promise((r) => setTimeout(r, 600));
 
     const existingIndex = submissions.findIndex(
       (s) => s.jobId === job.id && s.username === user.username
@@ -52,10 +61,14 @@ const ApplyFormPage = ({ job, onClose }) => {
 
     if (existingIndex >= 0) {
       submissions[existingIndex] = newSubmission;
-      toast.success(t("applyForm.successUpdate") || "Application updated successfully!");
+      toast.success(
+        t("applyForm.successUpdate") || "Application updated successfully!"
+      );
     } else {
       submissions.push(newSubmission);
-      toast.success(t("applyForm.successSubmit") || "Application submitted successfully!");
+      toast.success(
+        t("applyForm.successSubmit") || "Application submitted successfully!"
+      );
     }
 
     localStorage.setItem("submissions", JSON.stringify(submissions));
@@ -76,7 +89,8 @@ const ApplyFormPage = ({ job, onClose }) => {
           </div>
           <DialogHeader>
             <DialogTitle className="text-xl font-bold tracking-tight text-center">
-              {t("applyForm.title")} <span className="text-primary">{job.title}</span>
+              {t("applyForm.title")}{" "}
+              <span className="text-primary">{job.title}</span>
             </DialogTitle>
             <DialogDescription className="text-center mt-1">
               Complete the form below to submit your application.
@@ -87,7 +101,10 @@ const ApplyFormPage = ({ job, onClose }) => {
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
           <div className="space-y-3">
             <div className="space-y-1">
-              <Label htmlFor="fullName" className="text-xs font-semibold uppercase text-muted-foreground ml-1">
+              <Label
+                htmlFor="fullName"
+                className="text-xs font-semibold uppercase text-muted-foreground ml-1"
+              >
                 {t("applyForm.fullName")}
               </Label>
               <div className="relative">
@@ -105,7 +122,10 @@ const ApplyFormPage = ({ job, onClose }) => {
             </div>
 
             <div className="space-y-1">
-              <Label htmlFor="email" className="text-xs font-semibold uppercase text-muted-foreground ml-1">
+              <Label
+                htmlFor="email"
+                className="text-xs font-semibold uppercase text-muted-foreground ml-1"
+              >
                 {t("applyForm.email")}
               </Label>
               <div className="relative">
@@ -124,7 +144,10 @@ const ApplyFormPage = ({ job, onClose }) => {
             </div>
 
             <div className="space-y-1">
-              <Label htmlFor="resume" className="text-xs font-semibold uppercase text-muted-foreground ml-1">
+              <Label
+                htmlFor="resume"
+                className="text-xs font-semibold uppercase text-muted-foreground ml-1"
+              >
                 {t("applyForm.resume")}
               </Label>
               <div className="relative">
@@ -144,9 +167,15 @@ const ApplyFormPage = ({ job, onClose }) => {
 
           <DialogFooter className="mt-6 flex-col sm:flex-row gap-2">
             <DialogClose asChild>
-              <Button type="button" variant="ghost" className="sm:flex-1">{t("applyForm.cancel")}</Button>
+              <Button type="button" variant="ghost" className="sm:flex-1">
+                {t("applyForm.cancel")}
+              </Button>
             </DialogClose>
-            <Button type="submit" className="sm:flex-1 shadow-lg shadow-primary/20" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              className="sm:flex-1 shadow-lg shadow-primary/20"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
                 t("common.loading")
               ) : hasAlreadyApplied ? (

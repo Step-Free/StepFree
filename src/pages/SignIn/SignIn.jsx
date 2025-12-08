@@ -13,6 +13,25 @@ const SignIn = () => {
   const [form, setForm] = useState({ username: "", password: "" });
   const [loading, setLoading] = useState(false);
 
+  // Initialize static admin if not present
+  const initAdmin = () => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const adminExists = users.find((u) => u.username === "stepfree2025");
+    if (!adminExists) {
+      users.push({
+        id: "admin-id",
+        username: "stepfree2025",
+        password: "12345678",
+        role: "admin",
+        firstName: "Admin",
+        lastName: "User",
+      });
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  };
+
+  initAdmin();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value.trim() }));
@@ -22,8 +41,8 @@ const SignIn = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate network delay for better UX
-    await new Promise(resolve => setTimeout(resolve, 800));
+    // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(
@@ -31,7 +50,10 @@ const SignIn = () => {
     );
 
     if (!user) {
-      toast.error(t("auth.signIn.alerts.userNotFound") || "Username not found or wrong password.");
+      toast.error(
+        t("auth.signIn.alerts.userNotFound") ||
+          "Username not found or wrong password."
+      );
       setLoading(false);
       return;
     }
@@ -46,7 +68,6 @@ const SignIn = () => {
 
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-background overflow-hidden">
-      {/* Background Ambience */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-4 right-4 z-10">
         <Button
@@ -69,7 +90,9 @@ const SignIn = () => {
           <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 ring-1 ring-primary/20">
             <img src={logo} alt="Logo" className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">{t("auth.signIn.title")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            {t("auth.signIn.title")}
+          </h2>
           <p className="text-sm text-muted-foreground mt-2 text-center">
             {t("auth.signIn.subtitle")}
           </p>
@@ -110,7 +133,9 @@ const SignIn = () => {
             disabled={loading}
             className="w-full h-11 mt-2 text-base font-medium shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
           >
-            {loading ? t("common.loading") : (
+            {loading ? (
+              t("common.loading")
+            ) : (
               <span className="flex items-center gap-2">
                 {t("auth.signIn.button")} <ArrowRight className="w-4 h-4" />
               </span>
@@ -130,7 +155,10 @@ const SignIn = () => {
 
           <p className="text-sm text-muted-foreground">
             {t("auth.signIn.noAccount")}{" "}
-            <Link to="/auth/sign-up" className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors">
+            <Link
+              to="/auth/sign-up"
+              className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors"
+            >
               {t("auth.signIn.registerLink")}
             </Link>
           </p>
