@@ -23,21 +23,21 @@ const Education = () => {
           title: t("education.sections.onlineLearning.cards.courses.title"),
           text: t("education.sections.onlineLearning.cards.courses.text"),
           btn: t("education.sections.onlineLearning.cards.courses.btn"),
-          link: "https://hayat-stg.tawasal.org.sa/ar", // منصة حياة
+          link: "https://hayat-stg.tawasal.org.sa/ar", 
         },
         {
           img: CardImg2,
           title: t("education.sections.onlineLearning.cards.workshops.title"),
           text: t("education.sections.onlineLearning.cards.workshops.text"),
           btn: t("education.sections.onlineLearning.cards.workshops.btn"),
-          link: "https://npd-egypt.net/", // National Network for Persons with Disabilities (Ta’heel)
+          link: "https://npd-egypt.net/", 
         },
         {
           img: CardImg3,
           title: t("education.sections.onlineLearning.cards.library.title"),
           text: t("education.sections.onlineLearning.cards.library.text"),
           btn: t("education.sections.onlineLearning.cards.library.btn"),
-          link: "https://www.momkenpwd.org/", // Momken Foundation
+          link: "https://www.momkenpwd.org/", 
         },
       ],
     },
@@ -50,21 +50,21 @@ const Education = () => {
           title: t("education.sections.vocationalTraining.cards.skills.title"),
           text: t("education.sections.vocationalTraining.cards.skills.text"),
           btn: t("education.sections.vocationalTraining.cards.skills.btn"),
-          link: "https://itqadem.com", // Itqadem – Skills & adaptive training
+          link: "https://itqadem.com", 
         },
         {
           img: CardImg12,
           title: t("education.sections.vocationalTraining.cards.career.title"),
           text: t("education.sections.vocationalTraining.cards.career.text"),
           btn: t("education.sections.vocationalTraining.cards.career.btn"),
-          link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support & training
+          link: "https://hayat-stg.tawasal.org.sa/ar", 
         },
         {
           img: CardImg13,
           title: t("education.sections.vocationalTraining.cards.certification.title"),
           text: t("education.sections.vocationalTraining.cards.certification.text"),
           btn: t("education.sections.vocationalTraining.cards.certification.btn"),
-          link: "https://www.momkenpwd.org/", // Momken Foundation – Certification & training programs
+          link: "https://www.momkenpwd.org/", 
         },
       ],
     },
@@ -76,14 +76,14 @@ const Education = () => {
           title: t("education.sections.universityPrograms.cards.guides.title"),
           text: t("education.sections.universityPrograms.cards.guides.text"),
           btn: t("education.sections.universityPrograms.cards.guides.btn"),
-          link: "https://npd-egypt.net/", // National Network for Persons with Disabilities – university support
+          link: "https://npd-egypt.net/", 
         },
         {
           img: CardImg15,
           title: t("education.sections.universityPrograms.cards.support.title"),
           text: t("education.sections.universityPrograms.cards.support.text"),
           btn: t("education.sections.universityPrograms.cards.support.btn"),
-          link: "https://hayat-stg.tawasal.org.sa/ar", // Hayat Platform – support services for disabled students
+          link: "https://hayat-stg.tawasal.org.sa/ar", 
         },
 
         {
@@ -91,7 +91,7 @@ const Education = () => {
           title: t("education.sections.universityPrograms.cards.scholarships.title"),
           text: t("education.sections.universityPrograms.cards.scholarships.text"),
           btn: t("education.sections.universityPrograms.cards.scholarships.btn"),
-          link: "https://www.tqeem.sa/", // Tqeem Platform – scholarships & funding
+          link: "https://www.tqeem.sa/", 
         },
       ],
     },
@@ -101,10 +101,8 @@ const Education = () => {
   return (
     <main className="min-h-screen py-10 px-4 md:px-8 space-y-10 bg-white text-black dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-      {/* ===== Hero Section (SAME AS HOME) ===== */}
       <section className="container mx-auto px-6 py-12 flex flex-col-reverse md:flex-row items-center gap-10">
 
-        {/* Text */}
         <div className="w-full md:w-1/2 text-center md:text-left rtl:text-right">
 
           <h1 className="text-4xl sm:text-4xl md:text-4xl font-bold mb-6 leading-[1.1] w-full text-sky-600 text-center md:text-left rtl:text-right">
@@ -123,7 +121,7 @@ const Education = () => {
           </div>
         </div>
 
-        {/* Image */}
+      
         <div className="w-full md:w-1/2 flex justify-center hidden sm:flex">
           <img
             src={educationImg}
@@ -133,7 +131,7 @@ const Education = () => {
         </div>
       </section>
 
-      {/* ===== Dynamic Sections ===== */}
+    
       {sections.map((section, i, arr) => (
         <section
           key={i}

@@ -7,7 +7,7 @@ import { Facebook, Twitter, Linkedin } from "lucide-react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Updated routes with /main prefix
+  
   const footerNav = [
     { to: "/main/home", label: "Home" },
     { to: "/main/about", label: "About" },

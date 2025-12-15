@@ -1,6 +1,9 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 const PlaceCard = ({ imageUrl, title, description, url, searchQuery }) => {
+  const { t } = useTranslation();
   const highlightText = (text, query) => {
     if (!query) return text;
     const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -30,10 +33,11 @@ const PlaceCard = ({ imageUrl, title, description, url, searchQuery }) => {
         <a
           href={url || '#'}
           className="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300"
+
           target="_blank"
           rel="noopener noreferrer"
         >
-          Read More
+          {t('common.readMore')}
         </a>
       </div>
     </div>

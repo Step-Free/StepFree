@@ -1,9 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-/**
- * Custom hook to measure the height of an element.
- * Returns a ref to attach and the current height.
- */
+
 export function useElementHeight(onHeightChange) {
   const ref = useRef(null);
   const [height, setHeight] = useState(0);
@@ -13,13 +10,13 @@ export function useElementHeight(onHeightChange) {
       if (ref.current) {
         const newHeight = ref.current.offsetHeight;
         setHeight(newHeight);
-        onHeightChange?.(newHeight); // optional callback
+        onHeightChange?.(newHeight); 
       }
     };
 
     updateHeight();
 
-    // Use ResizeObserver for more accurate measurements
+    
     const resizeObserver = new ResizeObserver(updateHeight);
     if (ref.current) resizeObserver.observe(ref.current);
 

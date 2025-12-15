@@ -1,23 +1,26 @@
 [
   {
     "id": 1,
-    "title": "Accessible Front-End Developer",
-    "description": "Develop and maintain user interfaces with a strong focus on accessibility standards and usability for all users.",
+    "title": "Public Services Map – Disability Employment Request",
+    "description": "Official governmental request form for persons with disabilities seeking employment support in Egypt.",
     "buttonLabel": "View Details",
-    "image": "/src/assets/images/img1.png"
+    "image": "/src/assets/images/img1.png",
+    "link": "https://psm.gov.eg/services/173"
   },
   {
     "id": 2,
-    "title": "Data Entry Specialist",
-    "description": "Accurate and efficient data entry for various projects, with flexible scheduling and attention to detail.",
+    "title": "Jobility – Disability Job Portal Egypt",
+    "description": "Dedicated job‑matching platform for people with disabilities seeking inclusive workplaces in Egypt.",
     "buttonLabel": "View Details",
-    "image": "/src/assets/images/img2.png"
+    "image": "/src/assets/images/img1.png",
+    "link": "https://jobilityapp.com/"
   },
   {
     "id": 3,
-    "title": "Customer Support Representative",
-    "description": "Provide excellent customer service, resolving inquiries and issues with empathy and professionalism.",
+    "title": "Inclusive Jobs via Ministry Announcements (via News)",
+    "description": "Recent 2024 announcement: 1,318 job placements across public & private sector for persons with disabilities, coordinated by Ministry of Social Solidarity.",
     "buttonLabel": "View Details",
-    "image": "/src/assets/images/img3.png"
+    "image": "/src/assets/images/img1.png",
+    "link": "https://english.ahram.org.eg/News/536322.aspx"
   }
 ]

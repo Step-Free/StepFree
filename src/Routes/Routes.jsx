@@ -11,6 +11,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import EmployerDashboard from "../pages/Employer/EmployerDashboard";
+import Profile from "../pages/Profile/Profile";
 
 import NotFound from "../components/NotFound/NotFound";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     element: <Navigate to="/auth/sign-in" replace />,
   },
 
-  // Auth routes
+
   {
     path: "/auth",
     element: <AuthLayout />,
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
     ],
   },
 
-  // Main (protected) routes
+
   {
     path: "/main",
     element: (
@@ -48,11 +49,12 @@ const router = createBrowserRouter([
       { path: "education", element: <Education /> },
       { path: "jobs", element: <Jobs /> },
       { path: "places", element: <Places /> },
+      { path: "profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
     ],
   },
 
-  // Admin dashboard (protected)
+
   {
     path: "/admin/dashboard",
     element: (
@@ -62,7 +64,7 @@ const router = createBrowserRouter([
     ),
   },
 
-  // Employer dashboard (protected)
+
   {
     path: "/employer/dashboard",
     element: (
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
     ),
   },
 
-  // Catch-all → redirect to login
+
   {
     path: "*",
     element: <Navigate to="/auth/sign-in" replace />,

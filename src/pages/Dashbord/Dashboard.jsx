@@ -9,7 +9,7 @@ const Dashboard = ({ user, setUser }) => {
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     setUser(null);
-    window.location.href = "/auth/sign-in"; // يرجع للصفحة تسجيل الدخول
+    window.location.href = "/auth/sign-in"; 
   };
 
   return (

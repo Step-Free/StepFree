@@ -1,20 +1,16 @@
+# React + Vite
 
-## 🎨 Project ui Link on Visily
-You can view the design and details here:  
-(https://app.visily.ai/projects/77cbc97c-9ad2-438b-9ca0-58cd1c593380/boards/2231356)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 👥 Team Members
-These are the team members who contributed to this project:
+Currently, two official plugins are available:
 
-- [Hams Khateeb](https://github.com/hams2003)  
-- [Ahmed Nabel](https://github.com/ahmed-nabel)  
-- [Nereen taha](https://github.com/nereent)  
-- [Ahmed Wael](https://github.com/jony-jr)  
-- [Hager Ashraf](https://github.com/HagerAshraf365)  
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## React Compiler
 
-## 🎬 Demo Link
-Watch a demo of the project here:  
-https://www.loom.com/share/c8034571a4d241ea8fe33c7b7edb4db3
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-✨ Thank you for checking out our project!
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

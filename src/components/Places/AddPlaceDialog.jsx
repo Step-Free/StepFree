@@ -4,17 +4,31 @@ import { useTranslation } from 'react-i18next';
 const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
     const { t } = useTranslation();
     const [formData, setFormData] = useState({
-        title: '',
-        desc: '',
+        titleEn: '',
+        titleAr: '',
+        descEn: '',
+        descAr: '',
         img: '',
         url: ''
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formData.title && formData.desc) {
-            onSubmit(formData);
-            setFormData({ title: '', desc: '', img: '', url: '' });
+        if (formData.titleEn && formData.descEn) {
+            const newPlace = {
+                title: {
+                    en: formData.titleEn,
+                    ar: formData.titleAr || formData.titleEn // Fallback to EN if AR missing
+                },
+                desc: {
+                    en: formData.descEn,
+                    ar: formData.descAr || formData.descEn
+                },
+                img: formData.img,
+                url: formData.url
+            };
+            onSubmit(newPlace);
+            setFormData({ titleEn: '', titleAr: '', descEn: '', descAr: '', img: '', url: '' });
         }
     };
 
@@ -45,32 +59,62 @@ const AddPlaceDialog = ({ isOpen, onClose, onSubmit }) => {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                {t('addPlace.placeTitle')} *
-                            </label>
-                            <input
-                                type="text"
-                                required
-                                value={formData.title}
-                                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder={t('addPlace.placeholders.title')}
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {t('addPlace.placeTitle')} (En) *
+                                </label>
+                                <input
+                                    type="text"
+                                    required
+                                    value={formData.titleEn}
+                                    onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
+                                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="English Title"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {t('addPlace.placeTitle')} (Ar)
+                                </label>
+                                <input
+                                    type="text"
+                                    value={formData.titleAr}
+                                    onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
+                                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dir-rtl"
+                                    placeholder="العنوان بالعربية"
+                                    dir="rtl"
+                                />
+                            </div>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                {t('addPlace.description')} *
-                            </label>
-                            <textarea
-                                required
-                                value={formData.desc}
-                                onChange={(e) => setFormData({ ...formData, desc: e.target.value })}
-                                rows={4}
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                                placeholder={t('addPlace.placeholders.desc')}
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {t('addPlace.description')} (En) *
+                                </label>
+                                <textarea
+                                    required
+                                    value={formData.descEn}
+                                    onChange={(e) => setFormData({ ...formData, descEn: e.target.value })}
+                                    rows={4}
+                                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="English Description"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {t('addPlace.description')} (Ar)
+                                </label>
+                                <textarea
+                                    value={formData.descAr}
+                                    onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
+                                    rows={4}
+                                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    placeholder="الوصف بالعربية"
+                                    dir="rtl"
+                                />
+                            </div>
                         </div>
 
                         <div>

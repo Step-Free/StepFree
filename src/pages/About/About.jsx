@@ -7,7 +7,7 @@ import ImpactImage from '../../assets/images/impact.png';
 const About = () => {
   const { t } = useTranslation();
 
-  // --- Icon Components (Defined inside AboutUs) ---
+  
 
   const AccessibilityIcon = ({ className = "w-6 h-6" }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -48,9 +48,6 @@ const About = () => {
     </svg>
   );
 
-  /**
-   * Card component for displaying a single core value.
-   */
   const ValueCard = ({ icon, title, description }) => {
     return (
       <div className="flex flex-col items-start">
@@ -63,11 +60,7 @@ const About = () => {
     );
   };
 
-  // --- Page Section Components (Defined inside AboutUs) ---
-
-  /**
-   * Hero section for the About page.
-   */
+  
   const Hero = () => {
     return (
       <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-gray-900 py-20 md:py-28 text-center">
@@ -83,14 +76,12 @@ const About = () => {
     );
   };
 
-  /**
-   * Section for Mission and Vision.
-   */
+
   const MissionVision = () => {
     return (
       <section className="py-16 md:py-24 bg-white dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Text Column */}
+        
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
               {t("about.missionVision.missionTitle")}
@@ -105,7 +96,7 @@ const About = () => {
               {t("about.missionVision.visionDesc")}
             </p>
           </div>
-          {/* Image Column */}
+          
           <div>
             <img
               src={TeamImage}
@@ -119,9 +110,7 @@ const About = () => {
     );
   };
 
-  /**
-   * Section for Core Values.
-   */
+  
   const CoreValues = () => {
     const values = [
       {
@@ -177,14 +166,11 @@ const About = () => {
     );
   };
 
-  /**
-   * Section for Commitment to Impact.
-   */
   const Commitment = () => {
     return (
       <section className="py-16 md:py-24 bg-white dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Image Column */}
+        
           <div>
             <img
               src={ImpactImage}
@@ -193,7 +179,7 @@ const About = () => {
               onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/94a3b8?text=Image'; }}
             />
           </div>
-          {/* Text Column */}
+      
           <div className="md:order-last">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {t("about.impact.title")}
@@ -215,7 +201,7 @@ const About = () => {
     );
   };
 
-  // --- Main Return Statement for AboutUs Component ---
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 font-sans antialiased">
       <Hero />
