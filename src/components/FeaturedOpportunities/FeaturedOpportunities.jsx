@@ -29,23 +29,6 @@ export const FeaturedOpportunities = ({ jobs = [] }) => {
     setSelectedJob(job);
   };
 
-  const handleEdit = (job) => {
-    const updatedTitle = prompt("Edit job title:", job.title);
-    if (!updatedTitle) return;
-
-    const updatedJobs = jobs.map((j) =>
-      j.id === job.id ? { ...j, title: updatedTitle } : j
-    );
-    localStorage.setItem("jobs", JSON.stringify(updatedJobs));
-    window.location.reload();
-  };
-
-  const handleDelete = (jobId) => {
-    const updatedJobs = jobs.filter((j) => j.id !== jobId);
-    localStorage.setItem("jobs", JSON.stringify(updatedJobs));
-    window.location.reload();
-  };
-
   return (
     <section className="py-12">
       <h2 className="text-2xl font-bold mb-8 text-center">
@@ -98,25 +81,6 @@ export const FeaturedOpportunities = ({ jobs = [] }) => {
                 <Button variant="outline" onClick={() => handleApply(job)}>
                   Apply Now
                 </Button>
-
-                {(user?.role === "employer" || user?.role === "admin") && (
-                  <div className="flex gap-2">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => handleEdit(job)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="destructive"
-                      size="sm"
-                      onClick={() => handleDelete(job.id)}
-                    >
-                      Delete
-                    </Button>
-                  </div>
-                )}
               </CardFooter>
             </Card>
           ))}
